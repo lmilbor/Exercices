@@ -10,7 +10,7 @@ namespace exercice_jour_1
     {
         static void Main(string[] args)
         {
-            NbPremier();
+            CombienNombrePremier();
             Console.ReadKey();
         }
 
@@ -60,7 +60,10 @@ namespace exercice_jour_1
                 {
                     estPremier = false;
                 }
-                diviseur += 2;
+                else
+                {
+                    diviseur += 2;
+                }
             }
 
             return estPremier;
