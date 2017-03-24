@@ -35,7 +35,7 @@ namespace Login
                     Console.WriteLine("Entrez votre mot de passe :");
                     mdp = Console.ReadLine();
                     VerificationMdp(mdp);
-                    mdpCorrect = true;
+                    mdpCorrect = true;                
                 }
                 catch (FormatException e)
                 {
@@ -46,31 +46,24 @@ namespace Login
             Console.ReadKey();
         }
 
-        static bool VerificationLogin(string login)
+        static void VerificationLogin(string login)
         {
-            bool loginCorrect = true;
             if (login.Length < 5)
             {
-                loginCorrect = false;
                 throw new FormatException("Votre login doit contenir au moins 5 caractères.");
             }
-            return loginCorrect;
         }
 
-        static bool VerificationMdp(string mdp)
+        static void VerificationMdp(string mdp)
         {
-            bool mdpCorrect = true;
             if (mdp.Length < 6 || mdp.Length > 12)
             {
-                mdpCorrect = false;
                 throw new FormatException("Votre mot de passe doit contenir entre 6 et 12 caractères.");
             }
             if (mdp[0] == ' ' || mdp[mdp.Length-1] == ' ')
             {
-                mdpCorrect = false;
                 throw new FormatException("Votre mot de passe ne doit pas commencer ou finir par une espace.");
             }
-            return mdpCorrect;
         }
     }
 }
