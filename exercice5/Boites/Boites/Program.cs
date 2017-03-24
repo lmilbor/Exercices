@@ -44,6 +44,14 @@ namespace Boites
         private matiere _matiere = matiere.carton;
         #endregion
 
+        public Boite()
+        {
+            _hauteur = 30;
+            _largeur = 30;
+            _longueur = 30;
+            _matiere = matiere.carton;
+        }
+
         #region propriété
         /// <summary>
         /// Retourne la hauteur de la boite.
