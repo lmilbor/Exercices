@@ -10,118 +10,22 @@ namespace Boites
     {
         static void Main(string[] args)
         {
+            Boite boite1 = new Boite(30, 40, 50, matieres.plastique);
+            Etiquette etiquetteDest = new Etiquette { Couleur = couleurs.blanc, Format = formats.L, Texte = "John John" };
+            Etiquette etiquetteFragile = new Etiquette { Couleur = couleurs.rouge, Format = formats.S, Texte = "FRAGILE" };
+            boite1.Etiqueter(etiquetteDest, etiquetteFragile);
+            //Boite boite2 = new Boite(30, 60, 20, matieres.carton);
+            //boite2.Etiqueter("John F.", true);
+            //Etiquette etq = new Etiquette { Couleur = couleurs.bleu, Texte = "Un texte.", Format = formats.M };
+            //Console.Write("Les deux boites ont-elles les même dimensions et matières ? ");
+            //if (boite1.Compare(boite2))
+            //    Console.WriteLine("vrai");
+            //else
+            //    Console.WriteLine("faux");
+            //Console.WriteLine("Nombre de boîtes crées : " + Boite.CompteurBoite);
+            Console.WriteLine("Etiquette de la boite 1 : {0} {1}", boite1.EtiquetteDest.Texte, boite1.EtiquetteFragile.Texte);
+            //Console.WriteLine("Etiquette de la boite 2 : {0} {1}", boite2.EtiquetteDest.Texte, boite2.EtiquetteFragile.Texte);
+            Console.ReadKey();
         }
-    }
-    #region Types
-    /// <summary>
-    /// Définit un type couleur : blanc, orange, bleu, rouge, vert, marron, jaune.
-    /// </summary>
-    public enum couleur
-    {
-        blanc, orange,
-        bleu, rouge,
-        vert, marron,
-        jaune
-    }
-
-    /// <summary>
-    /// Définit un type matière : carton, plastique, bois, metal.
-    /// </summary>
-    public enum matiere
-    {
-        carton, bois,
-        plastique, metal
-    }
-    #endregion
-
-    public class Boite
-    {
-        #region champs privés
-        private double _hauteur = 30;
-        private double _longueur = 30;
-        private double _largeur = 30;
-        private couleur _couleur;
-        private matiere _matiere = matiere.carton;
-        #endregion
-
-        public Boite()
-        {
-            _hauteur = 30;
-            _largeur = 30;
-            _longueur = 30;
-            _matiere = matiere.carton;
-        }
-
-        #region propriété
-        /// <summary>
-        /// Retourne la hauteur de la boite.
-        /// </summary>
-        public double Hauteur
-        {
-            get {return _hauteur; }
-        }
-
-        /// <summary>
-        /// Retourne la largeur de la boite.
-        /// </summary>
-        public double Largeur
-        {
-            get { return _largeur; }
-        }
-
-        /// <summary>
-        /// Retourne la longueur de la boite.
-        /// </summary>
-        public double Longueur
-        {
-            get { return _longueur; }
-        }
-
-        /// <summary>
-        /// Retourne la couleur de la boite et permet de la choisir.
-        /// </summary>
-        public couleur Couleur
-        {
-            get { return _couleur; }
-            set { _couleur = value; }
-        }
-
-        /// <summary>
-        /// Retourne la matière de la boite.
-        /// </summary>
-        public matiere Matiere
-        {
-            get { return _matiere; }
-        }
-
-        /// <summary>
-        /// Retourne le volume de la boite.
-        /// </summary>
-        public double Volume
-        {
-            get { return _hauteur * _largeur * _longueur; }
-        }
-        #endregion
-
-        #region methodes publiques
-        /// <summary>
-        /// Cette fonctionnalité n'est pas encore disponible.
-        /// </summary>
-        /// <param name="destinataire"></param>
-        public void Etiqueter(string destinataire)
-        {
-            throw new NotImplementedException("Cette fonctionnalité n'est pas encore disponible.");
-        }
-
-        /// <summary>
-        /// Cette fonctionnalité n'est pas encore disponible.
-        /// </summary>
-        /// <param name="destinataire"></param>
-        /// <param name="fragile"></param>
-        public void Etiqueter(string destinataire, bool fragile)
-        {
-            throw new NotImplementedException("Cette fonctionnalité n'est pas encore disponible.");
-        }
-        #endregion
     }
 }
