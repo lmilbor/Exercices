@@ -23,14 +23,16 @@ namespace Vehicules
         public int CompareTo(object obj)
         {
             if (obj is Vehicule)
-                if (PRK < ((Vehicule)obj).PRK)
-                    return 1;
-                else if (PRK == ((Vehicule)obj).PRK)
-                    return 0;
-                else
-                    return -1;
+            {
+            if (PRK < ((Vehicule)obj).PRK)
+                return 1;
+            else if (PRK == ((Vehicule)obj).PRK)
+                return 0;
             else
-                throw new FormatException("L'objet entrez n'est pas du type Vehicule.");
+                return -1;
+            }
+            else
+                throw new ArgumentException("L'objet entrez n'est pas du type Vehicule.");
         }
 
         public abstract double PRK { get; }
