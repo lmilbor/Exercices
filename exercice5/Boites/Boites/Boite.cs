@@ -31,7 +31,7 @@ namespace Boites
     public class Boite
     {
         #region champs privés
-        private int _compteurBoite = 0;
+        private static int _compteurBoite = 0;
         private double _hauteur;
         private double _longueur;
         private double _largeur;
@@ -98,7 +98,7 @@ namespace Boites
         /// <summary>
         /// Retourne le nombre de boîtes crées.
         /// </summary>
-        public static int CompteurBoite { get; }
+        public static int CompteurBoite { get { return _compteurBoite; } }
 
         /// <summary>
         /// Retourne l'etiquette de déstinataire.
