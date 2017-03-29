@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vehicules
 {
-    public abstract class Vehicule
+    public abstract class Vehicule : IComparable
     {
         #region Propriétés
 
@@ -19,6 +19,20 @@ namespace Vehicules
         }
 
         public abstract void CalculerConso();
+
+        public int CompareTo(object obj)
+        {
+            if (obj is Vehicule)
+                if (PRK < ((Vehicule)obj).PRK)
+                    return 1;
+                else if (PRK == ((Vehicule)obj).PRK)
+                    return 0;
+                else
+                    return -1;
+            else
+                throw new FormatException("L'objet entrez n'est pas du type Vehicule.");
+        }
+
         public abstract double PRK { get; }
         #endregion
         public Vehicule(string nom, int nbRoues, energies energie)
@@ -44,6 +58,11 @@ namespace Vehicules
         public override double PRK
         {
            get { return 0.40; }
+        }
+
+        public string RefaireParallélisme()
+        {
+            return "Parallélisme refait";
         }
     }
 
