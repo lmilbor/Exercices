@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,6 +43,14 @@ namespace Boites
         #endregion
 
         #region propriété
+
+        /// <summary>
+        /// Retourne la liste d'article contenur dans la boite.
+        /// </summary>
+        public List<Article> Articles { get; } // Comme ça on a une list qui ne contient QUE des articles 
+                                              //(pas de transtypage nécessaire comme avec la propriété qui suit.
+        //public ArrayList Articles { get; }
+
         /// <summary>
         /// Retourne la hauteur de la boite.
         /// </summary>
@@ -70,12 +79,11 @@ namespace Boites
         /// Retourne la couleur de la boite et permet de la choisir.
         /// </summary>
         public couleurs Couleur { get ; set; } // C'est equivalent au code commenté qui suit.
-
-        //public couleur Couleur
-        //{
-        //    get { return _couleur; }
-        //    set { _couleur = value; }
-        //}
+        /*public couleur Couleur
+        {
+            get { return _couleur; }
+            set { _couleur = value; }
+        }*/
 
         /// <summary>
         /// Retourne la matière de la boite.
@@ -125,6 +133,7 @@ namespace Boites
             _largeur = 30;
             _longueur = 30;
             Matiere = matieres.carton;
+            Articles = new List<Article>();
             _compteurBoite++;
         }
 

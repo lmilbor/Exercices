@@ -10,6 +10,7 @@ namespace Vehicules
     {
         #region Propriétés
 
+        public double Prix { get; }
         public string Nom { get; }
         public int NbRoues { get; }
         public energies Energie { get; }
@@ -17,6 +18,26 @@ namespace Vehicules
         {
             get { return string.Format("Véhicule {0} roule sur {1} roues et à l'énergie {2}", Nom, NbRoues, Energie) ; }
         }
+        public abstract double PRK { get; }
+        #endregion
+
+        #region Constructeurs
+
+        public Vehicule(string nom, int nbRoues, energies energie)
+        {
+            Nom = nom;
+            NbRoues = nbRoues;
+            Energie = energie;
+        }
+
+        public Vehicule(string nom, double prix)
+        {
+            Nom = nom;
+            Prix = prix;
+        }
+        #endregion
+
+        #region Méthodes
 
         public abstract void CalculerConso();
 
@@ -24,33 +45,37 @@ namespace Vehicules
         {
             if (obj is Vehicule)
             {
-            if (PRK < ((Vehicule)obj).PRK)
-                return 1;
-            else if (PRK == ((Vehicule)obj).PRK)
-                return 0;
-            else
-                return -1;
+                if (Prix< ((Vehicule)obj).Prix)
+                    return 1;
+                else if (Prix == ((Vehicule)obj).Prix)
+                    return 0;
+                else
+                    return -1;
             }
             else
                 throw new ArgumentException("L'objet entrez n'est pas du type Vehicule.");
         }
 
-        public abstract double PRK { get; }
         #endregion
-        public Vehicule(string nom, int nbRoues, energies energie)
-        {
-            Nom = nom;
-            NbRoues = nbRoues;
-            Energie = energie;
-        }
     }
     public class Voiture : Vehicule
     {
+        #region Propriétés
+
         public override string Description
         {
             get { return string.Format("Je suis une voiture \r\n") + base.Description ; }
         }
-       public Voiture(string nom, energies energie) : base(nom, 4, energie) { }
+
+        #endregion
+
+        #region Constructeurs
+
+        public Voiture(string nom, energies energie) : base(nom, 4, energie) { }
+        public Voiture(string nom, double prix) :base(nom, prix) { }
+        #endregion
+
+        #region Méthodes
 
         public override void CalculerConso()
         {
@@ -66,19 +91,24 @@ namespace Vehicules
         {
             return "Parallélisme refait";
         }
+        #endregion
     }
 
     public class Moto : Vehicule
     {
+        #region Propriétés
         public override string Description
         {
             get { return string.Format("Je suis une moto \r\n") + base.Description; }
         }
-        public Moto(string nom, energies energie) :base(nom, 2, energie)
-        {
+        #endregion
 
-        }
+        #region Constructeurs
+        public Moto(string nom, energies energie) :base(nom, 2, energie){ }
+        public Moto(string nom, double prix) :base(nom, prix) { }
+        #endregion
 
+        #region Méthodes
         public override void CalculerConso()
         {
             throw new NotImplementedException();
@@ -88,5 +118,6 @@ namespace Vehicules
         {
             get { return 0.35; }
         }
+        #endregion
     }
 }
