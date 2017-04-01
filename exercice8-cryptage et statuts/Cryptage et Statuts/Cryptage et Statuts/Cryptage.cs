@@ -11,6 +11,7 @@ namespace Cryptage
     {
         #region Propriétés
         static public Dictionary<char, char> CleCryptage { get; set; }
+        static public Dictionary<char, char> CleDecryptage { get; set; }
         #endregion
 
         #region Constructeur
@@ -22,7 +23,7 @@ namespace Cryptage
 
         #region Méthodes
         /// <summary>
-        /// Charge un fichier texte avec les clés de cryptage et les stock dans Dictionary CleCryptage.
+        /// Charge un fichier texte avec les clés de cryptage et les stock dans Dictionary CleCryptage et Dictionary CleDecryptage.
         /// </summary>
         /// <param name="chemin">Le chemin du fichier texte</param>
         static public void ChargerClef(string chemin)
@@ -31,6 +32,7 @@ namespace Cryptage
             for (int i=0; i<fichier.Length; i++)
             {
                 CleCryptage.Add(fichier[i][0],fichier[i][2]);
+                CleDecryptage.Add(fichier[i][2], fichier[i][0]);
             }
         }
         /// <summary>
@@ -52,10 +54,17 @@ namespace Cryptage
         /// <summary>
         /// Charge un fichier et le décrypte avec Dictionary CleCryptage.
         /// </summary>
-        /// <param name="chemin">Le chemin du fichier texte</param>
-        static public void Décrypter(string chemin)
+        /// <param name="texte">Le chemin du fichier texte</param>
+        static public char[] Décrypter(string texte)
         {
-
+            char[] fichier = texte.ToLower().ToCharArray();
+            char temp;
+            for (int c = 0; c < fichier.Length; c++)
+            {
+                if (CleDecryptage.TryGetValue(fichier[c], out temp))
+                    fichier[c] = temp;
+            }
+            return fichier;
         }
         #endregion
     }
