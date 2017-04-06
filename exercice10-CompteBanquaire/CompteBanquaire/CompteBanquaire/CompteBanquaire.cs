@@ -2,7 +2,14 @@
 
 namespace POO
 {
-    public class CompteBancaire
+    // Classe abstraite qui définit l'interface minimale
+    // nécessaire aux décorateurs Surveillable et Convertible
+    public abstract class Compte
+    {
+        public abstract decimal ValeurCompte { get; }
+    }
+
+    public class CompteBancaire : Compte
     {
         #region Champs privés
         private bool _aDécouvert;
@@ -57,6 +64,12 @@ namespace POO
         {
             get { return _découvertAutorisé; }
             set { _découvertAutorisé = value; }
+        }
+
+        // Redéfinition de membre abstrait de Compte 
+        public override decimal ValeurCompte
+        {
+            get { return SoldeCourant; }
         }
         #endregion
 

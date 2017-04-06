@@ -9,45 +9,9 @@ namespace POO
         static void Main(string[] args)
         {
             //TesterCompteBancaire();
-            MoyenPaiement carte = new Carte(101)
-            {
-                NomTitulaire = "Gabin",
-                PrénomTitulaire = "Jean",
-                CodeSecret = 9999,
-                DateExpiration = new DateTime(2017, 09, 30)
-            };
+            //TesterMoyensPaiement();
+            TesterDécorateursCompte();
 
-            MoyenPaiement chq = new Chéquier(102)
-            {
-                NomTitulaire = "Delon",
-                PrénomTitulaire = "Alain",
-                NumPremierChèque = 102001
-            };
-
-            Console.WriteLine(carte.ToString());
-            Console.WriteLine(chq.ToString());
-            Console.WriteLine();
-            DateTime dateRenou = new DateTime(2016, 02, 25);
-            carte.Renouveler(dateRenou);
-            chq.Renouveler(new DateTime(2016, 05, 21));
-            Console.WriteLine(carte.ToString());
-            Console.WriteLine(chq.ToString());
-
-            Console.WriteLine();
-
-            //MoyenPaiment[] tabMP = new MoyenPaiment[4];
-            //tabMP[0] = new Carte(456);
-            //tabMP[1] = new Chéquier(456);
-            //tabMP[2] = new Carte(789);
-            //tabMP[3] = new Chéquier(789);
-
-            //for (int i = 0; i < tabMP.Length; i++)
-            //{
-            //    Console.WriteLine(tabMP[i].ToString());
-            //    Console.WriteLine(tabMP[i].Payer());
-            //}
-
-            //TesterDistributeur();
             Console.ReadKey();
         }
 
@@ -91,5 +55,71 @@ namespace POO
             //// Association de cette carte au compte (agrégation)
             //tabComptes[1].AjouterCarte(carte);
         }
-    }
-}
+
+        static void TesterDécorateursCompte()
+        {
+            CompteBancaire cb = new CompteBancaire(156146, DateTime.Today, 200);
+            cb.DécouvertAutorisé = -1000;
+
+            Console.WriteLine("Valeur du compte : {0}", cb.ValeurCompte);
+
+            // Crée un compte surveillable, qui encapsuble un compte bancaire ordinaire
+            // en lui associant des seuils d'alertes
+            Surveillable compteSurveillable = new Surveillable(cb, -500, 1000);
+            Console.WriteLine(compteSurveillable.EtatCompte);
+
+            cb.Débiter(1000);
+            Console.WriteLine();
+            Console.WriteLine("Valeur du compte : {0}", cb.ValeurCompte);
+            Console.WriteLine(compteSurveillable.EtatCompte);
+
+            cb.Créditer(3000);
+            Console.WriteLine();
+            Console.WriteLine("Valeur du compte : {0}", cb.ValeurCompte);
+            Console.WriteLine(compteSurveillable.EtatCompte);
+
+            Console.WriteLine();
+            Convertible compteConvertible = new Convertible(cb);
+            Console.WriteLine("Valeur du compte en Yuan : {0}", compteConvertible.ValeurEnYuans);
+        }
+
+        static void TesterMoyensPaiement()
+        {
+            MoyenPaiment carte = new Carte(101)
+            {
+                NomTitulaire = "Gabin",
+                PrénomTitulaire = "Jean",
+                CodeSecret = 9999,
+                DateExpiration = new DateTime(2017, 09, 30)
+            };
+
+            MoyenPaiment chq = new Chéquier(102)
+            {
+                NomTitulaire = "Delon",
+                PrénomTitulaire = "Alain",
+                NumPremierChèque = 102001
+            };
+
+            Console.WriteLine(carte.ToString());
+            Console.WriteLine(chq.ToString());
+            Console.WriteLine();
+            DateTime dateRenou = new DateTime(2016, 02, 25);
+            carte.Renouveler(dateRenou);
+            chq.Renouveler(new DateTime(2016, 05, 21));
+            Console.WriteLine(carte.ToString());
+            Console.WriteLine(chq.ToString());
+
+            Console.WriteLine();
+
+            //MoyenPaiment[] tabMP = new MoyenPaiment[4];
+            //tabMP[0] = new Carte(456);
+            //tabMP[1] = new Chéquier(456);
+            //tabMP[2] = new Carte(789);
+            //tabMP[3] = new Chéquier(789);
+
+            //for (int i = 0; i < tabMP.Length; i++)
+            //{
+            //    Console.WriteLine(tabMP[i].ToString());
+            //    Console.WriteLine(tabMP[i].Payer());
+            //}
+        }

@@ -3,7 +3,7 @@ using System.Diagnostics;
 
 namespace POO
 {
-    public abstract class MoyenPaiement : IRenouvelable
+    public abstract class MoyenPaiment : IRenouvelable
     {
         public long NumCompte { get; protected set; }
         public string NomTitulaire { get; set; }
@@ -11,13 +11,13 @@ namespace POO
 
         public DateTime DateRenouvellement { get; private set; }
 
-        public MoyenPaiement()
+        public MoyenPaiment()
         {
 
         }
 
         // Coonstructeur surchargé
-        public MoyenPaiement(long numCpt)
+        public MoyenPaiment(long numCpt)
         {
             NumCompte = numCpt;
             Debug.WriteLine("Constructeur de MoyenPaiment");
@@ -39,7 +39,7 @@ namespace POO
     }
 
 
-    public class Carte : MoyenPaiement
+    public class Carte : MoyenPaiment
     {
         public long NumCarte { get; set; }
 
@@ -78,7 +78,7 @@ namespace POO
         }
     }
 
-    public class Chéquier : MoyenPaiement
+    public class Chéquier : MoyenPaiment
     {
         public int NombreChèques { get; set; }
         public long NumPremierChèque { get; set; }
