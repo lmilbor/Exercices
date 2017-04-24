@@ -8,8 +8,21 @@ namespace Vehicules
 {
     class Program
     {
+        public static string ChangerPneus()
+        {
+            return "Changement de pneus.";
+        }
+        public static string Vidanger()
+        {
+            return "Vidange réalisée.";
+        }
+        public static string RetoucherPeinture()
+        {
+            return "Peinture retouchée.";
+        }
         static void Main(string[] args)
         {
+
             /// Introduction au collection génériques
             Vehicule[] tableauVehicules =
             {
@@ -18,7 +31,17 @@ namespace Vehicules
                 new Voiture("Enzo", 380000),
                 new Moto("Yamaha XJR1300", 11000)
             };
+            // pas la bonne méthode pour utiliser les délégués
+            DelegueEntretien entretien = null;
+            entretien += RetoucherPeinture;
+            tableauVehicules[0].Entretenir(DateTime.Today, entretien);
+            entretien += Vidanger;
+            tableauVehicules[0].Entretenir(DateTime.Today, entretien);
+            entretien += ChangerPneus;
+            tableauVehicules[0].Entretenir(DateTime.Today, entretien);
+            Console.WriteLine(tableauVehicules[0].CarnetEntretien[DateTime.Today]);
 
+            /*
             Dictionary<string, Vehicule> dicoTaco = new Dictionary<string, Vehicule>();
             foreach (Vehicule v in tableauVehicules)
             {
@@ -54,7 +77,7 @@ namespace Vehicules
                     Console.WriteLine(nom + " : " + veh.Prix);
                 }
             }
-
+            */
             /*
             for (int i = 0; i < tableauVehicules.Length; i++)
             {

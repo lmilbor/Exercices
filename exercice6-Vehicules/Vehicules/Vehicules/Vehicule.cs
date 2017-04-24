@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vehicules
 {
+    public delegate string DelegueEntretien();
     public abstract class Vehicule : IComparable
     {
         #region Propriétés
@@ -14,6 +15,7 @@ namespace Vehicules
         public string Nom { get; }
         public int NbRoues { get; }
         public energies Energie { get; }
+        public Dictionary<DateTime, string> CarnetEntretien { get; }
         public virtual string Description
         {
             get { return string.Format("Véhicule {0} roule sur {1} roues et à l'énergie {2}", Nom, NbRoues, Energie) ; }
@@ -28,18 +30,27 @@ namespace Vehicules
             Nom = nom;
             NbRoues = nbRoues;
             Energie = energie;
+            CarnetEntretien = new Dictionary<DateTime, string>();
         }
 
         public Vehicule(string nom, double prix)
         {
             Nom = nom;
             Prix = prix;
+            CarnetEntretien = new Dictionary<DateTime, string>();
         }
         #endregion
 
         #region Méthodes
 
         public abstract void CalculerConso();
+
+        public void Entretenir(DateTime date, DelegueEntretien entretien)
+        {
+            if (!CarnetEntretien.ContainsKey(date))
+                CarnetEntretien.Add(date, string.Format("Entretien du véhicule {0} du {1}", this.Nom, date));
+            CarnetEntretien[date] += "\n" + entretien();
+        }
 
         public int CompareTo(object obj)
         {
@@ -120,4 +131,5 @@ namespace Vehicules
         }
         #endregion
     }
+
 }
