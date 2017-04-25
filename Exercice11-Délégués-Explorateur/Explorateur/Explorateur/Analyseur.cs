@@ -9,10 +9,15 @@ namespace ExplorateurFichiers
 {
     public class Analyseur
     {
-        static public int NombreFichiers { get; set; } // créer un enumerate avec les type de fichiers ?
-        static public int NombreFichiersCs { get; set; }
-        static public string NomFichierPlusGrand { get; set; }
-        static public List<string> NomFichiers { get; set; }
+
+        #region Propriétés
+        static public int NombreFichiers { get; private set; } // créer un enumerate avec les type de fichiers ?
+        static public int NombreFichiersCs { get; private set; }
+        static public string NomFichierPlusGrand { get; private set; }
+        static public List<string> NomFichiers { get; private set; }
+        #endregion
+
+        #region Méthodes
         static public void AnalyserDossier(string chemin)
         {
             NombreFichiers = 0;
@@ -28,7 +33,7 @@ namespace ExplorateurFichiers
         static public void CompterFichiers(FileInfo fichier)
         {
             NombreFichiers++;
-            if (fichier.Extension == ".cs")
+            if (fichier.Extension.ToLower() == ".cs")
                 NombreFichiersCs++;
         }
 
@@ -41,8 +46,9 @@ namespace ExplorateurFichiers
         static public void FiltrerProjet(FileInfo fichier)
         {
             if (fichier.Extension == ".csproj")
-                NomFichiers.Add(fichier.Name);
+                NomFichiers.Add(Path.GetFileNameWithoutExtension(fichier.Name));
         }
+        #endregion
 
     }
 }

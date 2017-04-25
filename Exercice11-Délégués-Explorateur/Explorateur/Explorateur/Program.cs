@@ -35,9 +35,7 @@ namespace ExplorateurFichiers
                 }
                 Console.WriteLine("\n{0} fichiers, dont {1} fichiers .cs\nNom de fichier le plus long :\n{2}\n\nFichiers projets C# :", Analyseur.NombreFichiers, Analyseur.NombreFichiersCs, Analyseur.NomFichierPlusGrand);
                 foreach (var fichiers in Analyseur.NomFichiers)
-                {
                     Console.WriteLine(fichiers);
-                }
                 Console.ReadKey();
                 Console.WriteLine("Souhaitez-vous continuer l'analyse de dossier ? (oui / non)");
                 if (Console.ReadLine() == "non")

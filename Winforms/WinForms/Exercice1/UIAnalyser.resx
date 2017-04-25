@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="&gt;&gt;checkNomLong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="lblresNbFichiersCs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 223</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiersCs.Name" xml:space="preserve">
+    <value>lblresNbFichiersCs</value>
+  </data>
+  <data name="&gt;&gt;checkNomLong.Name" xml:space="preserve">
+    <value>checkNomLong</value>
+  </data>
+  <data name="lblNbFichiersCs.Text" xml:space="preserve">
+    <value>fichiers cs</value>
+  </data>
+  <data name="&gt;&gt;lblresNomLong.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;lblDossierAnalyser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkNbFichierCs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 17</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="checkFichiersProjets.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Afficher.Text" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="&gt;&gt;listFichiersProjet.Name" xml:space="preserve">
+    <value>listFichiersProjet</value>
+  </data>
+  <data name="panelFichiersProjet.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiersCs.Name" xml:space="preserve">
+    <value>lblNbFichiersCs</value>
+  </data>
+  <data name="&gt;&gt;lblNomLong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblDossierAnalyser.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblNomLong.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblDossierAnalyser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 13</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiersCs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="textDossier.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 29</value>
+  </data>
+  <data name="&gt;&gt;btnAnalyser.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelFichiersProjet.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="checkNbFichierCs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkNbFichiers.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichiers.Name" xml:space="preserve">
+    <value>checkNbFichiers</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiers.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;Afficher.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="listFichiersProjet.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="btnAnalyser.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 65</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Analyseur de fichiers</value>
+  </data>
+  <data name="lblresNbFichiers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 206</value>
+  </data>
+  <data name="&gt;&gt;Afficher.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichierCs.Name" xml:space="preserve">
+    <value>checkNbFichierCs</value>
+  </data>
+  <data name="&gt;&gt;lblNomLong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNomLong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>113, 17</value>
+  </data>
+  <data name="checkNbFichierCs.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblresNbFichiers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="&gt;&gt;Afficher.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ResultatsFichiersProjet.Text" xml:space="preserve">
+    <value>Fichiers projets</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ResultatsFichiersProjet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
+  </data>
+  <data name="lblNbFichiers.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;lblNomLong.Name" xml:space="preserve">
+    <value>lblNomLong</value>
+  </data>
+  <data name="ResultatsFichiersProjet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>14, 14</value>
+  </data>
+  <data name="&gt;&gt;btnAnalyser.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lblresNbFichiers.Text" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiers.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="textDossier.Size" type="System.Drawing.Size, System.Drawing">
+    <value>431, 20</value>
+  </data>
+  <data name="lblNomLong.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="ResultatsFichiersProjet.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btnRepertoire.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 20</value>
+  </data>
+  <data name="btnAnalyser.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichierCs.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnRepertoire.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI Black, 8pt, style=Bold</value>
+  </data>
+  <data name="&gt;&gt;ResultatsFichiersProjet.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiers.Name" xml:space="preserve">
+    <value>lblresNbFichiers</value>
+  </data>
+  <data name="lblNbFichiersCs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="checkNbFichiers.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;ResultatsFichiersProjet.Parent" xml:space="preserve">
+    <value>panelFichiersProjet</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiersCs.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="listFichiersProjet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 118</value>
+  </data>
+  <data name="lblDossierAnalyser.Text" xml:space="preserve">
+    <value>Dossier à analyser</value>
+  </data>
+  <data name="lblNomLong.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="lblresNomLong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 258</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiersCs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichiers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ResultatsFichiersProjet.Name" xml:space="preserve">
+    <value>ResultatsFichiersProjet</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichiers.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblNbFichiersCs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 223</value>
+  </data>
+  <data name="lblDossierAnalyser.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="checkFichiersProjets.Text" xml:space="preserve">
+    <value>Liste des fichiers projets</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>winAnalyseur</value>
+  </data>
+  <data name="lblNbFichiers.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnAnalyser.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="lblNbFichiers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>53, 17</value>
+  </data>
+  <data name="lblresNomLong.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>150, 0</value>
+  </data>
+  <data name="Afficher.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;lblDossierAnalyser.Name" xml:space="preserve">
+    <value>lblDossierAnalyser</value>
+  </data>
+  <data name="Afficher.Size" type="System.Drawing.Size, System.Drawing">
+    <value>167, 87</value>
+  </data>
+  <data name="&gt;&gt;lblDossierAnalyser.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panelFichiersProjet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Afficher.Name" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="checkNomLong.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;textDossier.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="lblresNbFichiersCs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>46, 17</value>
+  </data>
+  <data name="&gt;&gt;panelFichiersProjet.Name" xml:space="preserve">
+    <value>panelFichiersProjet</value>
+  </data>
+  <data name="lblresNomLong.Text" xml:space="preserve">
+    <value>un nom de fichiers méga long de la mort qui tue</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichierCs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNomLong.Text" xml:space="preserve">
+    <value>Nom le plus long</value>
+  </data>
+  <data name="&gt;&gt;lblDossierAnalyser.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;checkFichiersProjets.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="checkFichiersProjets.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 17</value>
+  </data>
+  <data name="lblresNbFichiersCs.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="&gt;&gt;listFichiersProjet.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblNomLong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>20, 240</value>
+  </data>
+  <data name="lblDossierAnalyser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 13</value>
+  </data>
+  <data name="textDossier.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="checkNbFichierCs.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 33</value>
+  </data>
+  <data name="lblresNbFichiersCs.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;btnRepertoire.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblresNomLong.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="panelFichiersProjet.Location" type="System.Drawing.Point, System.Drawing">
+    <value>200, 65</value>
+  </data>
+  <data name="btnAnalyser.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNbFichiers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="lblresNomLong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblresNomLong.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblresNbFichiers.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="Afficher.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 118</value>
+  </data>
+  <data name="&gt;&gt;checkNomLong.Parent" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="checkNomLong.Text" xml:space="preserve">
+    <value>Nom du fichier le plus long</value>
+  </data>
+  <data name="checkNomLong.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="btnAnalyser.Text" xml:space="preserve">
+    <value>Analyser</value>
+  </data>
+  <data name="lblNbFichiers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>64, 206</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiers.Name" xml:space="preserve">
+    <value>lblNbFichiers</value>
+  </data>
+  <data name="&gt;&gt;btnAnalyser.Name" xml:space="preserve">
+    <value>btnAnalyser</value>
+  </data>
+  <data name="lblresNbFichiers.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;checkFichiersProjets.Parent" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="btnAnalyser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>169, 41</value>
+  </data>
+  <data name="checkNbFichiers.Text" xml:space="preserve">
+    <value>Nombre total de fichiers</value>
+  </data>
+  <data name="lblresNomLong.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="checkFichiersProjets.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;textDossier.Name" xml:space="preserve">
+    <value>textDossier</value>
+  </data>
+  <data name="&gt;&gt;listFichiersProjet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="checkFichiersProjets.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 67</value>
+  </data>
+  <data name="lblNbFichiersCs.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 17</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="checkNbFichierCs.Text" xml:space="preserve">
+    <value>Nombre de fichiers cs</value>
+  </data>
+  <data name="lblresNomLong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>148, 26</value>
+  </data>
+  <data name="&gt;&gt;textDossier.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="checkNomLong.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 50</value>
+  </data>
+  <data name="lblNbFichiersCs.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="checkNbFichierCs.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;lblresNomLong.Name" xml:space="preserve">
+    <value>lblresNomLong</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichiers.Parent" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="&gt;&gt;btnRepertoire.Name" xml:space="preserve">
+    <value>btnRepertoire</value>
+  </data>
+  <data name="listFichiersProjet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>301, 173</value>
+  </data>
+  <data name="&gt;&gt;btnRepertoire.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="lblresNbFichiersCs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="&gt;&gt;textDossier.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiersCs.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblNbFichiers.Text" xml:space="preserve">
+    <value>fichiers</value>
+  </data>
+  <data name="ResultatsFichiersProjet.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="checkNbFichiers.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNomLong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiers.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="checkNbFichiers.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 16</value>
+  </data>
+  <data name="&gt;&gt;checkFichiersProjets.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;checkFichiersProjets.Name" xml:space="preserve">
+    <value>checkFichiersProjets</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiersCs.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="panelFichiersProjet.Size" type="System.Drawing.Size, System.Drawing">
+    <value>302, 41</value>
+  </data>
+  <data name="&gt;&gt;lblresNbFichiers.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>516, 304</value>
+  </data>
+  <data name="checkNbFichiers.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 17</value>
+  </data>
+  <data name="&gt;&gt;btnAnalyser.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblresNbFichiers.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="btnRepertoire.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="checkFichiersProjets.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;ResultatsFichiersProjet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblNbFichiersCs.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
+  </data>
+  <data name="checkNomLong.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 17</value>
+  </data>
+  <data name="&gt;&gt;panelFichiersProjet.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btnRepertoire.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="checkNomLong.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="btnRepertoire.Location" type="System.Drawing.Point, System.Drawing">
+    <value>457, 29</value>
+  </data>
+  <data name="&gt;&gt;lblNbFichiersCs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="btnRepertoire.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;listFichiersProjet.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="lblresNbFichiersCs.Text" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;checkNbFichierCs.Parent" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="&gt;&gt;checkNomLong.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en</value>
+  </metadata>
+</root>

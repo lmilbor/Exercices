@@ -9,7 +9,7 @@ namespace ExplorateurFichiers
 {
     public class Explorateur
     {
-        public static void Exploreur(string chemin, DelegueExplorateur explorateur)
+        public static void Exploreur(string chemin, DelegueExplorateur action)
         {
 
             DirectoryInfo repertoire = new DirectoryInfo(chemin);
@@ -17,7 +17,7 @@ namespace ExplorateurFichiers
                 throw new FileNotFoundException("Le dossier auquel vous souhaitez accéder n'existe pas.\nVeuillez entrer un nom de dossier valide.");
             foreach (var f in repertoire.EnumerateFiles("*", SearchOption.AllDirectories))
             {
-                explorateur(f);
+                action(f);
             }
         }
     }
