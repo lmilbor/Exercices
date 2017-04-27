@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Exercice1
+namespace SaisieComplete
 {
     static class Program
     {
@@ -16,12 +14,9 @@ namespace Exercice1
         [STAThread]
         static void Main()
         {
-            // Changement de la langue.
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-CA");
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new winAnalyseur());
+            Application.Run(new FormProduits());
         }
     }
 }

@@ -17,20 +17,29 @@ namespace Exercice1
     {
         public winAnalyseur()
         {
-            // Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-CA");
+            //Data Source=LMILBOR17-DE\IP08R2;Initial Catalog=Northwind;Integrated Security=True
             InitializeComponent();
+            // Gestion des boutons.
             btnRepertoire.Click += BtnRepertoire_Click;
             btnAnalyser.Click += BtnAnalyser_Click;
             checkNbFichiers.CheckStateChanged += CheckNbFichiers_CheckStateChanged;
             checkNbFichierCs.CheckStateChanged += CheckNbFichierCs_CheckStateChanged;
             checkNomLong.CheckStateChanged += CheckNomLong_CheckStateChanged;
-            checkFichiersProjets.CheckStateChanged += CheckFichiersProjets_CheckStateChanged;
+            //checkFichiersProjets.CheckStateChanged += CheckFichiersProjets_CheckStateChanged;
+            //On utilise un lambda expression à la place de la synthaxe classique.
+            checkFichiersProjets.CheckStateChanged += (object sender, EventArgs e) => {
+                listBoxFichiersProjet.Visible = checkFichiersProjets.Checked;
+                panelFichiersProjet.Visible = checkFichiersProjets.Checked;
+            };
+            // A la fermeture.
             this.FormClosing += WinAnalyseur_FormClosing;
         }
 
         private void WinAnalyseur_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var res = MessageBox.Show("Voulez-vous asuvegarder vos préférences avant de quitter ?", "Sortie", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            var res = MessageBox.Show("Voulez-vous asuvegarder vos préférences avant de quitter ?",
+                "Sortie", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
             switch (res)
             {
                 case DialogResult.Cancel:
@@ -52,11 +61,11 @@ namespace Exercice1
             }
         }
 
-        private void CheckFichiersProjets_CheckStateChanged(object sender, EventArgs e)
-        {
-            listFichiersProjet.Visible = checkFichiersProjets.Checked;
-            panelFichiersProjet.Visible = checkFichiersProjets.Checked;
-        }
+        //private void CheckFichiersProjets_CheckStateChanged(object sender, EventArgs e)
+        //{
+        //    listBoxFichiersProjet.Visible = checkFichiersProjets.Checked;
+        //    panelFichiersProjet.Visible = checkFichiersProjets.Checked;
+        //}
 
         private void CheckNomLong_CheckStateChanged(object sender, EventArgs e)
         {
@@ -84,7 +93,7 @@ namespace Exercice1
             lblresNomLong.Text = Analyseur.NomFichierPlusGrand;
             foreach (var item in Analyseur.NomFichiers)
             {
-                listFichiersProjet.Items.Add(item); 
+                listBoxFichiersProjet.Items.Add(item);
             }
         }
 

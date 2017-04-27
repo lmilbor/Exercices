@@ -36,7 +36,6 @@
             this.checkNomLong = new System.Windows.Forms.CheckBox();
             this.checkNbFichierCs = new System.Windows.Forms.CheckBox();
             this.checkNbFichiers = new System.Windows.Forms.CheckBox();
-            this.listFichiersProjet = new System.Windows.Forms.ListView();
             this.panelFichiersProjet = new System.Windows.Forms.Panel();
             this.ResultatsFichiersProjet = new System.Windows.Forms.Label();
             this.btnRepertoire = new System.Windows.Forms.Button();
@@ -46,6 +45,7 @@
             this.lblresNomLong = new System.Windows.Forms.Label();
             this.lblresNbFichiers = new System.Windows.Forms.Label();
             this.lblNbFichiersCs = new System.Windows.Forms.Label();
+            this.listBoxFichiersProjet = new System.Windows.Forms.ListBox();
             this.textDossier = new System.Windows.Forms.TextBox();
             this.Afficher.SuspendLayout();
             this.panelFichiersProjet.SuspendLayout();
@@ -109,12 +109,6 @@
             this.checkNbFichiers.Name = "checkNbFichiers";
             this.checkNbFichiers.UseVisualStyleBackColor = true;
             // 
-            // listFichiersProjet
-            // 
-            resources.ApplyResources(this.listFichiersProjet, "listFichiersProjet");
-            this.listFichiersProjet.Name = "listFichiersProjet";
-            this.listFichiersProjet.UseCompatibleStateImageBehavior = false;
-            // 
             // panelFichiersProjet
             // 
             resources.ApplyResources(this.panelFichiersProjet, "panelFichiersProjet");
@@ -168,6 +162,12 @@
             this.lblNbFichiersCs.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblNbFichiersCs.Name = "lblNbFichiersCs";
             // 
+            // listBoxFichiersProjet
+            // 
+            resources.ApplyResources(this.listBoxFichiersProjet, "listBoxFichiersProjet");
+            this.listBoxFichiersProjet.FormattingEnabled = true;
+            this.listBoxFichiersProjet.Name = "listBoxFichiersProjet";
+            // 
             // textDossier
             // 
             resources.ApplyResources(this.textDossier, "textDossier");
@@ -179,6 +179,7 @@
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBoxFichiersProjet);
             this.Controls.Add(this.lblNbFichiersCs);
             this.Controls.Add(this.lblresNbFichiers);
             this.Controls.Add(this.lblresNomLong);
@@ -187,7 +188,6 @@
             this.Controls.Add(this.lblNbFichiers);
             this.Controls.Add(this.btnRepertoire);
             this.Controls.Add(this.panelFichiersProjet);
-            this.Controls.Add(this.listFichiersProjet);
             this.Controls.Add(this.Afficher);
             this.Controls.Add(this.btnAnalyser);
             this.Controls.Add(this.textDossier);
@@ -211,7 +211,6 @@
         private System.Windows.Forms.CheckBox checkNomLong;
         private System.Windows.Forms.CheckBox checkNbFichierCs;
         private System.Windows.Forms.CheckBox checkNbFichiers;
-        private System.Windows.Forms.ListView listFichiersProjet;
         private System.Windows.Forms.Panel panelFichiersProjet;
         private System.Windows.Forms.Label ResultatsFichiersProjet;
         private System.Windows.Forms.Button btnRepertoire;
@@ -221,6 +220,7 @@
         private System.Windows.Forms.Label lblresNomLong;
         private System.Windows.Forms.Label lblresNbFichiers;
         private System.Windows.Forms.Label lblNbFichiersCs;
+        private System.Windows.Forms.ListBox listBoxFichiersProjet;
     }
 }
 
