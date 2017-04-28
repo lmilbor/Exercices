@@ -221,29 +221,103 @@ namespace ADO
             string sqlQuery = @"INSERT Products (ProductName, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, SupplierID)
                                 VALUES (@ProductName, @CategoryID, @QuantityPerUnit, @UnitPrice, @UnitsInStock, @SupplierID)";
 
+            #region Définition des paramètres
             var productName = new SqlParameter("@ProductName", DbType.String);
             var categoryID = new SqlParameter("@CategoryID", DbType.Int32);
             var quantityPerUnit = new SqlParameter("@QuantityPerUnit", DbType.String);
             var unitPrice = new SqlParameter("@UnitPrice", DbType.Decimal);
             var unitsInStock = new SqlParameter("@UnitsInStock", DbType.Int16);
             var supplierID = new SqlParameter("@SupplierID", DbType.Int32);
+
             productName.Value = produit.Nom;
             categoryID.Value = produit.Catégorie;
             quantityPerUnit.Value = produit.QteUnitaire;
             unitPrice.Value = produit.PrixUnitaire;
             unitsInStock.Value = produit.UniteEnStock;
-            supplierID.Value = produit.Fournisseur;
+            supplierID.Value = produit.Fournisseur; 
+            #endregion
+
             using (var connect = new SqlConnection(connectString))
             {
-                var command = new SqlCommand(sqlQuery, connect);
+                connect.Open();
+                //on initialise la transaction
+                SqlTransaction tran = connect.BeginTransaction();
+
+                #region Ajout des paramètres
+                var command = new SqlCommand(sqlQuery, connect, tran);
+                command.Parameters.Add(productName);
+                command.Parameters.Add(categoryID);
+                command.Parameters.Add(quantityPerUnit);
+                command.Parameters.Add(unitPrice);
+                command.Parameters.Add(unitsInStock);
+                command.Parameters.Add(supplierID); 
+                #endregion
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    // si tout se passe bien on commit la transaction
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    // si un problème survient, on rollback
+                    tran.Rollback();
+                    throw;
+                }
+            }
+        }
+        static public void InsertProduit(Produit produit, Categorie categorie)
+        {
+            var listProduit = new BindingList<Produit>();
+            var connectString = Properties.Settings.Default.NorthwindConnectionString;
+            string sqlQuery = @"INSERT Products (ProductName, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, SupplierID)
+                                VALUES (@ProductName, @CategoryID, @QuantityPerUnit, @UnitPrice, @UnitsInStock, @SupplierID)";
+
+            #region Définition des paramètres
+            var productName = new SqlParameter("@ProductName", DbType.String);
+            var categoryID = new SqlParameter("@CategoryID", DbType.Int32);
+            var quantityPerUnit = new SqlParameter("@QuantityPerUnit", DbType.String);
+            var unitPrice = new SqlParameter("@UnitPrice", DbType.Decimal);
+            var unitsInStock = new SqlParameter("@UnitsInStock", DbType.Int16);
+            var supplierID = new SqlParameter("@SupplierID", DbType.Int32);
+
+            productName.Value = produit.Nom;
+            categoryID.Value = categorie.IDCatégorie;
+            quantityPerUnit.Value = produit.QteUnitaire;
+            unitPrice.Value = produit.PrixUnitaire;
+            unitsInStock.Value = produit.UniteEnStock;
+            supplierID.Value = produit.Fournisseur;
+            #endregion
+
+            using (var connect = new SqlConnection(connectString))
+            {
+                connect.Open();
+                //on initialise la transaction
+                SqlTransaction tran = connect.BeginTransaction();
+                var command = new SqlCommand(sqlQuery, connect, tran);
+
+                #region Ajouts des paramètres
                 command.Parameters.Add(productName);
                 command.Parameters.Add(categoryID);
                 command.Parameters.Add(quantityPerUnit);
                 command.Parameters.Add(unitPrice);
                 command.Parameters.Add(unitsInStock);
                 command.Parameters.Add(supplierID);
-                connect.Open();
-                command.ExecuteNonQuery();
+                #endregion
+
+                try
+                {
+                    command.ExecuteNonQuery();
+                    // si tout se passe bien on commit la transaction
+                    tran.Commit();
+                }
+                catch (Exception)
+                {
+                    // si un problème survient, on rollback
+                    tran.Rollback();
+                    throw;
+                }
             }
         }
         static public void RemoveProduit(Produit produit)
@@ -262,6 +336,51 @@ namespace ADO
                 connect.Open();
                 command.ExecuteNonQuery();
             }
+        }
+        static public void AddCategorie()
+        {
+            var listProduit = new BindingList<Produit>();
+            var connectString = Properties.Settings.Default.NorthwindConnectionString;
+            string sqlQuery = @"INSERT Categories (CategoryName)
+                                VALUES (@CategoryName)";
+
+            var CategoryName = new SqlParameter("@CategoryName", DbType.String);
+            CategoryName.Value = "Autres produits";
+            using (var connect = new SqlConnection(connectString))
+            {
+                var command = new SqlCommand(sqlQuery, connect);
+                command.Parameters.Add(CategoryName);
+                connect.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+        static private void GetListeCatégorieFromReader(List<Categorie> listCategorie, SqlDataReader reader)
+        {
+            while (reader.Read())
+            {
+                var categorie = new Categorie();
+                categorie.IDCatégorie = (int)reader["CategoryID"];
+                categorie.Nom = (string)reader["CategoryName"];
+                if (reader["Description"] != DBNull.Value)
+                    categorie.Description = (string)reader["Description"];
+                listCategorie.Add(categorie);
+            }
+        }
+        static public List<Categorie> GetListeCatégorie()
+        {
+            var listCategorie = new List<Categorie>();
+            var connectString = Properties.Settings.Default.NorthwindConnectionString;
+            string sqlQuery = @"select CategoryID, CategoryName, Description from Categories";
+            using (var connect = new SqlConnection(connectString))
+            {
+                var command = new SqlCommand(sqlQuery, connect);
+                connect.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    GetListeCatégorieFromReader(listCategorie, reader);
+                }
+            }
+            return listCategorie;
         }
     }
 }

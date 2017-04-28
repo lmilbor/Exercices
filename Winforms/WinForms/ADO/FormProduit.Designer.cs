@@ -36,6 +36,7 @@
             // 
             // btnPlus
             // 
+            this.btnPlus.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPlus.Location = new System.Drawing.Point(12, 12);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(32, 23);
@@ -45,6 +46,7 @@
             // 
             // btnMoins
             // 
+            this.btnMoins.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoins.Location = new System.Drawing.Point(50, 12);
             this.btnMoins.Name = "btnMoins";
             this.btnMoins.Size = new System.Drawing.Size(32, 23);

@@ -16,10 +16,8 @@ namespace ADO
         public FormSaisieProduit()
         {
             InitializeComponent();
-            btnOK.Click += BtnOK_Click;
         }
-
-        private void BtnOK_Click(object sender, EventArgs e)
+        protected override void OnClosing(CancelEventArgs e)
         {
             if (DialogResult.Equals(DialogResult.OK))
             {
@@ -44,11 +42,6 @@ namespace ADO
                 int.TryParse(mtbFournisseur.Text, out fournisseur);
                 ProduitSaisi.Fournisseur = fournisseur;
             }
-        }
-
-        protected override void OnClosing(CancelEventArgs e)
-        {
-            
             base.OnClosing(e);
         }
     }
