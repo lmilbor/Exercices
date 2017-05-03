@@ -37,11 +37,11 @@
             this.lblFournisseur = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnAnnuler = new System.Windows.Forms.Button();
-            this.mtbCategorie = new System.Windows.Forms.MaskedTextBox();
-            this.mtbFournisseur = new System.Windows.Forms.MaskedTextBox();
             this.mtbUniteEnStock = new System.Windows.Forms.MaskedTextBox();
             this.mtbPrixUnitaire = new System.Windows.Forms.MaskedTextBox();
             this.tbQteUnitaire = new System.Windows.Forms.TextBox();
+            this.cbCategorie = new System.Windows.Forms.ComboBox();
+            this.cbFournisseur = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // tbNom
@@ -100,7 +100,7 @@
             // lblFournisseur
             // 
             this.lblFournisseur.AutoSize = true;
-            this.lblFournisseur.Location = new System.Drawing.Point(12, 168);
+            this.lblFournisseur.Location = new System.Drawing.Point(12, 164);
             this.lblFournisseur.Name = "lblFournisseur";
             this.lblFournisseur.Size = new System.Drawing.Size(61, 13);
             this.lblFournisseur.TabIndex = 11;
@@ -126,22 +126,6 @@
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseVisualStyleBackColor = true;
             // 
-            // mtbCategorie
-            // 
-            this.mtbCategorie.Location = new System.Drawing.Point(103, 30);
-            this.mtbCategorie.Mask = "00";
-            this.mtbCategorie.Name = "mtbCategorie";
-            this.mtbCategorie.Size = new System.Drawing.Size(62, 20);
-            this.mtbCategorie.TabIndex = 14;
-            // 
-            // mtbFournisseur
-            // 
-            this.mtbFournisseur.Location = new System.Drawing.Point(103, 168);
-            this.mtbFournisseur.Mask = "000";
-            this.mtbFournisseur.Name = "mtbFournisseur";
-            this.mtbFournisseur.Size = new System.Drawing.Size(62, 20);
-            this.mtbFournisseur.TabIndex = 15;
-            // 
             // mtbUniteEnStock
             // 
             this.mtbUniteEnStock.Location = new System.Drawing.Point(103, 130);
@@ -165,6 +149,22 @@
             this.tbQteUnitaire.Size = new System.Drawing.Size(62, 20);
             this.tbQteUnitaire.TabIndex = 18;
             // 
+            // cbCategorie
+            // 
+            this.cbCategorie.FormattingEnabled = true;
+            this.cbCategorie.Location = new System.Drawing.Point(103, 34);
+            this.cbCategorie.Name = "cbCategorie";
+            this.cbCategorie.Size = new System.Drawing.Size(121, 21);
+            this.cbCategorie.TabIndex = 19;
+            // 
+            // cbFournisseur
+            // 
+            this.cbFournisseur.FormattingEnabled = true;
+            this.cbFournisseur.Location = new System.Drawing.Point(103, 161);
+            this.cbFournisseur.Name = "cbFournisseur";
+            this.cbFournisseur.Size = new System.Drawing.Size(121, 21);
+            this.cbFournisseur.TabIndex = 20;
+            // 
             // FormSaisieProduit
             // 
             this.AcceptButton = this.btnOK;
@@ -173,11 +173,11 @@
             this.CancelButton = this.btnAnnuler;
             this.ClientSize = new System.Drawing.Size(384, 266);
             this.ControlBox = false;
+            this.Controls.Add(this.cbFournisseur);
+            this.Controls.Add(this.cbCategorie);
             this.Controls.Add(this.tbQteUnitaire);
             this.Controls.Add(this.mtbPrixUnitaire);
             this.Controls.Add(this.mtbUniteEnStock);
-            this.Controls.Add(this.mtbFournisseur);
-            this.Controls.Add(this.mtbCategorie);
             this.Controls.Add(this.btnAnnuler);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.lblFournisseur);
@@ -209,10 +209,10 @@
         private System.Windows.Forms.Label lblFournisseur;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnAnnuler;
-        private System.Windows.Forms.MaskedTextBox mtbCategorie;
-        private System.Windows.Forms.MaskedTextBox mtbFournisseur;
         private System.Windows.Forms.MaskedTextBox mtbUniteEnStock;
         private System.Windows.Forms.MaskedTextBox mtbPrixUnitaire;
         private System.Windows.Forms.TextBox tbQteUnitaire;
+        private System.Windows.Forms.ComboBox cbCategorie;
+        private System.Windows.Forms.ComboBox cbFournisseur;
     }
 }

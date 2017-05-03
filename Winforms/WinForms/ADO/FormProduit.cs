@@ -14,35 +14,44 @@ namespace ADO
     public partial class FormProduit : Form
     {
         private BindingList<Produit> _listeProduit;
-        private bool _autreCategorieCree;
-        private List<Categorie> _listeCatégorie;
-        private Produit _suppressionProduit;
-        private Produit _ajoutProduit;
+        private List<Produit> _produitsSupprimés;
+        private List<Produit> _produitsAjoutés;
         public FormProduit()
         {
             InitializeComponent();
+
+            #region Initialisation des champs privés
+            _produitsAjoutés = new List<Produit>();
+            _produitsSupprimés = new List<Produit>();
+            #endregion
+
+            #region Abonnement au évènements
             btnPlus.Click += BtnPlus_Click;
             btnMoins.Click += BtnMoins_Click;
+            btnEnregistrer.Click += BtnEnregistrer_Click;
+            #endregion
         }
 
+        private void BtnEnregistrer_Click(object sender, EventArgs e)
+        {
+            // Ajout des produits
+            DAL.AjouterProduits(_produitsAjoutés);
+            _produitsAjoutés.Clear();
+            // Suppression des produits
+            DAL.SupprimerProduits(_produitsSupprimés);
+            _produitsSupprimés.Clear();
+            // Rechargement de la liste des produits dans l'affichage
+            _listeProduit = DAL.GetListProduit();
+            dgvProduits.DataSource = _listeProduit;
+        }
         private void BtnMoins_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DAL.RemoveProduit((Produit)dgvProduits.CurrentRow.DataBoundItem);
-                _listeProduit.Remove((Produit)dgvProduits.CurrentRow.DataBoundItem);
-            }
-            catch (SqlException sqle)
-            {
-                if (sqle.Number == 547)
-                {
-                    var res = MessageBox.Show("Impossible de supprimer ce produit. (Des commandes sont peut-être encore en cours)",
-                                                                              "Suppression impossible", MessageBoxButtons.OK);
-                }
-                else
-                    throw;
-            }
-
+            Produit p = (Produit)dgvProduits.CurrentRow.DataBoundItem;
+            if (!_produitsAjoutés.Contains(p))
+                _produitsSupprimés.Add(p);
+            else
+                _produitsAjoutés.Remove(p);
+            _listeProduit.Remove(p);
         }
 
         private void BtnPlus_Click(object sender, EventArgs e)
@@ -52,42 +61,9 @@ namespace ADO
                 form.ShowDialog();
                 if (form.DialogResult.Equals(DialogResult.OK))
                 {
-                    try
-                    {
-                            if (_listeCatégorie.Exists(c => c.IDCatégorie == form.ProduitSaisi.Catégorie))
-                            {
-                                {
-                                    DAL.InsertProduit(form.ProduitSaisi);
-                                    _listeProduit = DAL.GetListProduit(); // On recharge tout le tableau pour avoir le ProductID qui va bien
-                                    dgvProduits.DataSource = _listeProduit; // Comme on a fait un "ListeProduit = qqc" on a changé de pointeur, il faut donc l'indiquer à DataGridView
-                                }
-                            }
-                            else if (_autreCategorieCree)
-                            {
-                                DAL.InsertProduit(form.ProduitSaisi, _listeCatégorie.Where(c => c.Nom == "Autres produits").First());
-                                _listeProduit = DAL.GetListProduit();
-                                dgvProduits.DataSource = _listeProduit;
-                            }
-                            else
-                        {
-                            DAL.AddCategorie();
-                            DAL.GetListeCatégorie();
-                            DAL.InsertProduit(form.ProduitSaisi, _listeCatégorie.Where(c => c.Nom == "Autres produits").First());
-                            _listeProduit = DAL.GetListProduit();
-                            dgvProduits.DataSource = _listeProduit;
-                            _autreCategorieCree = true;
-                        }
-                    }
-                    catch (SqlException sqle)
-                    {
-                        if (sqle.Number == 547)
-                        {
-                            var res = MessageBox.Show("Impossible d'ajouter ce produit. (Vérifiez les identifants de fournisseur et/ou de catégorie.)",
-                                                                                         "Ajout impossible", MessageBoxButtons.OK);
-                        }
-                        else
-                            throw;
-                    }
+                    _produitsAjoutés.Add(form.ProduitSaisi);
+                    _listeProduit.Add(form.ProduitSaisi);
+
                 }
             }
         }
@@ -95,7 +71,6 @@ namespace ADO
         protected override void OnLoad(EventArgs e)
         {
             _listeProduit = DAL.GetListProduit();
-            _listeCatégorie = DAL.GetListeCatégorie();
             dgvProduits.DataSource = _listeProduit;
             base.OnLoad(e);
         }

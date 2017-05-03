@@ -32,18 +32,20 @@
             this.cbListPays = new System.Windows.Forms.ComboBox();
             this.lblNbProduitsFournisseur = new System.Windows.Forms.Label();
             this.lblresNbProduitsFournisseur = new System.Windows.Forms.Label();
+            this.dgvProduits = new System.Windows.Forms.DataGridView();
+            this.lblProduits = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListFournisseurs)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvListFournisseurs
             // 
-            this.dgvListFournisseurs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvListFournisseurs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListFournisseurs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListFournisseurs.Location = new System.Drawing.Point(0, 28);
+            this.dgvListFournisseurs.Location = new System.Drawing.Point(4, 28);
             this.dgvListFournisseurs.Name = "dgvListFournisseurs";
-            this.dgvListFournisseurs.Size = new System.Drawing.Size(869, 459);
+            this.dgvListFournisseurs.Size = new System.Drawing.Size(864, 96);
             this.dgvListFournisseurs.TabIndex = 0;
             // 
             // cbListPays
@@ -72,11 +74,33 @@
             this.lblresNbProduitsFournisseur.TabIndex = 4;
             this.lblresNbProduitsFournisseur.Text = "0";
             // 
+            // dgvProduits
+            // 
+            this.dgvProduits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvProduits.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProduits.Location = new System.Drawing.Point(4, 161);
+            this.dgvProduits.Name = "dgvProduits";
+            this.dgvProduits.Size = new System.Drawing.Size(864, 321);
+            this.dgvProduits.TabIndex = 5;
+            // 
+            // lblProduits
+            // 
+            this.lblProduits.AutoSize = true;
+            this.lblProduits.Location = new System.Drawing.Point(12, 136);
+            this.lblProduits.Name = "lblProduits";
+            this.lblProduits.Size = new System.Drawing.Size(45, 13);
+            this.lblProduits.TabIndex = 6;
+            this.lblProduits.Text = "Produits";
+            // 
             // FormFournisseurs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(873, 487);
+            this.ClientSize = new System.Drawing.Size(873, 485);
+            this.Controls.Add(this.lblProduits);
+            this.Controls.Add(this.dgvProduits);
             this.Controls.Add(this.lblresNbProduitsFournisseur);
             this.Controls.Add(this.lblNbProduitsFournisseur);
             this.Controls.Add(this.cbListPays);
@@ -84,6 +108,7 @@
             this.Name = "FormFournisseurs";
             this.Text = "FormFournisseurs";
             ((System.ComponentModel.ISupportInitialize)(this.dgvListFournisseurs)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProduits)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -95,5 +120,7 @@
         private System.Windows.Forms.ComboBox cbListPays;
         private System.Windows.Forms.Label lblNbProduitsFournisseur;
         private System.Windows.Forms.Label lblresNbProduitsFournisseur;
+        private System.Windows.Forms.DataGridView dgvProduits;
+        private System.Windows.Forms.Label lblProduits;
     }
 }

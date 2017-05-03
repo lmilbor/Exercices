@@ -30,9 +30,11 @@
 		{
             this.menuGeneral = new System.Windows.Forms.MenuStrip();
             this.MenuFournisseurs = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuCommandesClient = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuCommandes = new System.Windows.Forms.ToolStripMenuItem();
+            this.listeCommandeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuMaitreDetails = new System.Windows.Forms.ToolStripMenuItem();
             this.menuProduits = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuWindows = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,7 @@
             // 
             this.menuGeneral.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MenuFournisseurs,
-            this.menuCommandesClient,
+            this.menuCommandes,
             this.menuProduits,
             this.menuWindows});
             this.menuGeneral.Location = new System.Drawing.Point(0, 0);
@@ -55,23 +57,39 @@
             this.MenuFournisseurs.Size = new System.Drawing.Size(85, 20);
             this.MenuFournisseurs.Text = "Fournisseurs";
             // 
-            // menuCommandesClient
+            // menuCommandes
             // 
-            this.menuCommandesClient.Name = "menuCommandesClient";
-            this.menuCommandesClient.Size = new System.Drawing.Size(141, 20);
-            this.menuCommandesClient.Text = "Commandes par Client";
+            this.menuCommandes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.listeCommandeToolStripMenuItem});
+            this.menuCommandes.Name = "menuCommandes";
+            this.menuCommandes.Size = new System.Drawing.Size(87, 20);
+            this.menuCommandes.Text = "Commandes";
             // 
-            // menuWindows
+            // listeCommandeToolStripMenuItem
             // 
-            this.menuWindows.Name = "menuWindows";
-            this.menuWindows.Size = new System.Drawing.Size(63, 20);
-            this.menuWindows.Text = "Fenêtres";
+            this.listeCommandeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuMaitreDetails});
+            this.listeCommandeToolStripMenuItem.Name = "listeCommandeToolStripMenuItem";
+            this.listeCommandeToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.listeCommandeToolStripMenuItem.Text = "Liste commande";
+            // 
+            // menuMaitreDetails
+            // 
+            this.menuMaitreDetails.Name = "menuMaitreDetails";
+            this.menuMaitreDetails.Size = new System.Drawing.Size(152, 22);
+            this.menuMaitreDetails.Text = "Maitre details";
             // 
             // menuProduits
             // 
             this.menuProduits.Name = "menuProduits";
             this.menuProduits.Size = new System.Drawing.Size(63, 20);
             this.menuProduits.Text = "Produits";
+            // 
+            // menuWindows
+            // 
+            this.menuWindows.Name = "menuWindows";
+            this.menuWindows.Size = new System.Drawing.Size(63, 20);
+            this.menuWindows.Text = "Fenêtres";
             // 
             // MDIForm
             // 
@@ -95,8 +113,10 @@
 		private System.Windows.Forms.MenuStrip menuGeneral;
 		private System.Windows.Forms.ToolStripMenuItem MenuFournisseurs;
 		private System.Windows.Forms.ToolStripMenuItem menuWindows;
-		private System.Windows.Forms.ToolStripMenuItem menuCommandesClient;
+		private System.Windows.Forms.ToolStripMenuItem menuCommandes;
         private System.Windows.Forms.ToolStripMenuItem menuProduits;
+        private System.Windows.Forms.ToolStripMenuItem listeCommandeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuMaitreDetails;
     }
 }
 

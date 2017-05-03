@@ -10,10 +10,10 @@ namespace ADO
     {
         public int IDProduit { get; set; }
         public string Nom { get; set; }
-        public int Catégorie { get; set; }
+        public int? Catégorie { get; set; }
         public string QteUnitaire { get; set; }
-        public decimal PrixUnitaire { get; set; }
-        public int UniteEnStock { get; set; }
-        public int Fournisseur { get; set; }
+        public decimal? PrixUnitaire { get; set; }
+        public int? UniteEnStock { get; set; }
+        public int? Fournisseur { get; set; }
     }
 }

@@ -13,6 +13,8 @@ namespace ADO
     public partial class FormSaisieProduit : Form
     {
         public Produit ProduitSaisi { get; set; }
+        private List<Categorie> _listeCatégorie;
+        private List<Fournisseur> _listeFournisseur;
         public FormSaisieProduit()
         {
             InitializeComponent();
@@ -22,14 +24,12 @@ namespace ADO
             if (DialogResult.Equals(DialogResult.OK))
             {
                 ProduitSaisi = new Produit();
-                int categorie, fournisseur;
                 short uniteEnStock;
                 decimal prixUnitaire;
                 // Pour le Nom
                 ProduitSaisi.Nom = tbNom.Text;
                 // Pour la catégorie
-                int.TryParse(mtbCategorie.Text, out categorie);
-                ProduitSaisi.Catégorie = categorie;
+                ProduitSaisi.Catégorie = (int)cbCategorie.SelectedValue;
                 // Pour la quantité unitaire
                 ProduitSaisi.QteUnitaire = tbQteUnitaire.Text;
                 // Pour le prix unitaire
@@ -39,10 +39,21 @@ namespace ADO
                 short.TryParse(mtbUniteEnStock.Text, out uniteEnStock);
                 ProduitSaisi.UniteEnStock = uniteEnStock;
                 // Pour le fournisseur
-                int.TryParse(mtbFournisseur.Text, out fournisseur);
-                ProduitSaisi.Fournisseur = fournisseur;
+                ProduitSaisi.Fournisseur = (int)cbFournisseur.SelectedValue;
             }
             base.OnClosing(e);
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            _listeCatégorie = DAL.GetListeCatégorie();
+            cbCategorie.DataSource = _listeCatégorie;
+            cbCategorie.DisplayMember = "Nom";
+            cbCategorie.ValueMember = "IDCatégorie";
+            _listeFournisseur = DAL.GetListFournisseurs();
+            cbFournisseur.DataSource = _listeFournisseur;
+            cbFournisseur.DisplayMember = "NomEntreprise";
+            cbFournisseur.ValueMember = "FournisseurID";
+            base.OnLoad(e);
         }
     }
 }

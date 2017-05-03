@@ -16,7 +16,7 @@ namespace ADO
 
 			// TODO : branchez ici l'ouverture des fenêtres filles sur le clic des menus
             MenuFournisseurs.Click += (object sender, EventArgs e) => ShowChild("ADO.FormFournisseurs");
-            menuCommandesClient.Click += (object sender, EventArgs e) => ShowChild("ADO.FormCommandes");
+            menuMaitreDetails.Click += (object sender, EventArgs e) => ShowChild("ADO.FormCommandes");
             menuProduits.Click += (object sender, EventArgs e) => ShowChild("ADO.FormProduit");
         }
 

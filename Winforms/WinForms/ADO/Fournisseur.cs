@@ -8,6 +8,7 @@ namespace ADO
 {
     public class Fournisseur
     {
+        public int FournisseurID { get; set; }
         public string NomEntreprise { get; set; }
         public string NomContact { get; set; }
         public string TitreContact { get; set; }

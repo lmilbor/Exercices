@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Categorie.cs" />
+    <Compile Include="Commande.cs" />
     <Compile Include="CommandesClient.cs" />
     <Compile Include="DAL.cs" />
     <Compile Include="FormCommandes.cs">

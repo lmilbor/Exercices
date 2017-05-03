@@ -16,14 +16,18 @@ namespace ADO
         {
             InitializeComponent();
             cbListPays.SelectedValueChanged += CbListPays_Click;
-            dgvListFournisseurs.DataSource = DAL.GetListFournisseurs(cbListPays.SelectedText.ToString());
-            cbListPays.DataSource = DAL.GetListPays();
         }
-
         private void CbListPays_Click(object sender, EventArgs e)
         {
             dgvListFournisseurs.DataSource = DAL.GetListFournisseurs(cbListPays.SelectedValue.ToString());
             lblresNbProduitsFournisseur.Text = DAL.GetNbProduitsPays(cbListPays.SelectedValue.ToString()).ToString();
+        }
+        protected override void OnLoad(EventArgs e)
+        {
+            dgvListFournisseurs.DataSource = DAL.GetListFournisseurs(cbListPays.SelectedText.ToString());
+            cbListPays.DataSource = DAL.GetListPays();
+            //dgvProduits.DataSource = DAL.GetListProduit(qreg);
+            base.OnLoad(e);
         }
     }
 }
