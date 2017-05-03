@@ -20,23 +20,47 @@ namespace ADO
             btnFiltrerIDClient.Click += BtnFiltrerIDClient_Click;
             btnExporterXml.Click += BtnExporterXml_Click;
             btnImporterXml.Click += BtnImporterXml_Click;
+            btnExporterXmlShort.Click += BtnExporterXmlShort_Click;
+        }
+
+        private void Sauvegarder(string code)
+        {
+            SaveFileDialog slctDossier = new SaveFileDialog();
+            slctDossier.Filter = "XML files (*.xml)|*.xml";
+            slctDossier.DefaultExt = "xml";
+            slctDossier.AddExtension = true;
+            if (slctDossier.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(slctDossier.FileName))
+            {
+                switch (code)
+                {
+                    case "short":
+                        DAL.ExporterXml_XmlWriter(_listeCommande, slctDossier.FileName);
+                        break;
+                    default:
+                        DAL.ExporterXml(_listeCommande, slctDossier.FileName);
+                        break;
+                }
+            }
+        }
+
+        private void BtnExporterXmlShort_Click(object sender, EventArgs e)
+        {
+            Sauvegarder("short");
         }
 
         private void BtnImporterXml_Click(object sender, EventArgs e)
         {
-            OpenFileDialog slctDossier = new OpenFileDialog();
-            if (slctDossier.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(slctDossier.FileName))
+            OpenFileDialog slctFichier = new OpenFileDialog();
+            if (slctFichier.ShowDialog() == DialogResult.OK && slctFichier.CheckFileExists)
             {
-                _listeCommande = DAL.ImporterXml(slctDossier.FileName);
+                _listeCommande = DAL.ImporterXml(slctFichier.FileName);
                 dgvSelectionCommande.DataSource = _listeCommande;
             }
         }
 
         private void BtnExporterXml_Click(object sender, EventArgs e)
         {
-            FolderBrowserDialog slctDossier = new FolderBrowserDialog();
-            if (slctDossier.ShowDialog() == DialogResult.OK && !string.IsNullOrWhiteSpace(slctDossier.SelectedPath))
-                DAL.ExporterXml(_listeCommande, slctDossier.SelectedPath);
+            Sauvegarder("serial");
         }
 
         private void BtnFiltrerIDClient_Click(object sender, EventArgs e)

@@ -36,6 +36,7 @@
             this.btnFiltrerIDClient = new System.Windows.Forms.Button();
             this.btnExporterXml = new System.Windows.Forms.Button();
             this.btnImporterXml = new System.Windows.Forms.Button();
+            this.btnExporterXmlShort = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListCommandesClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSelectionCommande)).BeginInit();
             this.SuspendLayout();
@@ -114,11 +115,21 @@
             this.btnImporterXml.Text = "Importer XML";
             this.btnImporterXml.UseVisualStyleBackColor = true;
             // 
+            // btnExporterXmlShort
+            // 
+            this.btnExporterXmlShort.Location = new System.Drawing.Point(396, 1);
+            this.btnExporterXmlShort.Name = "btnExporterXmlShort";
+            this.btnExporterXmlShort.Size = new System.Drawing.Size(140, 23);
+            this.btnExporterXmlShort.TabIndex = 8;
+            this.btnExporterXmlShort.Text = "Exporter par date en XML";
+            this.btnExporterXmlShort.UseVisualStyleBackColor = true;
+            // 
             // FormCommandes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(942, 483);
+            this.Controls.Add(this.btnExporterXmlShort);
             this.Controls.Add(this.btnImporterXml);
             this.Controls.Add(this.btnExporterXml);
             this.Controls.Add(this.btnFiltrerIDClient);
@@ -146,5 +157,6 @@
         private System.Windows.Forms.Button btnFiltrerIDClient;
         private System.Windows.Forms.Button btnExporterXml;
         private System.Windows.Forms.Button btnImporterXml;
+        private System.Windows.Forms.Button btnExporterXmlShort;
     }
 }
