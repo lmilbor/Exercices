@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice1", "Exercice1\Exer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADO", "ADO\ADO.csproj", "{7E14EED6-56FD-4ADF-B55F-7F0646C9D18E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollectionsBD", "CollectionsBD\CollectionsBD.csproj", "{C834521A-ADB7-42B9-AAB2-D37339A0754B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7E14EED6-56FD-4ADF-B55F-7F0646C9D18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E14EED6-56FD-4ADF-B55F-7F0646C9D18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E14EED6-56FD-4ADF-B55F-7F0646C9D18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C834521A-ADB7-42B9-AAB2-D37339A0754B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C834521A-ADB7-42B9-AAB2-D37339A0754B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C834521A-ADB7-42B9-AAB2-D37339A0754B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C834521A-ADB7-42B9-AAB2-D37339A0754B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
