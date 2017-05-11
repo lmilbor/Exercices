@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "entrainement", "entrainemen
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice-Visuel explorateur de fichier", "Exercice-Visuel explorateur de fichier\Exercice-Visuel explorateur de fichier.csproj", "{4072B115-D196-47DB-89D5-A5C8EFD00174}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trombinoscope", "Trombinoscope\Trombinoscope.csproj", "{31E26B88-A246-4096-B181-3F4A6AB303EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FenetreParametrage", "FenetreParametrage\FenetreParametrage.csproj", "{E20C1C5B-91FA-44C1-8A00-8B11969362B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4072B115-D196-47DB-89D5-A5C8EFD00174}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4072B115-D196-47DB-89D5-A5C8EFD00174}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4072B115-D196-47DB-89D5-A5C8EFD00174}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E26B88-A246-4096-B181-3F4A6AB303EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E26B88-A246-4096-B181-3F4A6AB303EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E26B88-A246-4096-B181-3F4A6AB303EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E26B88-A246-4096-B181-3F4A6AB303EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E20C1C5B-91FA-44C1-8A00-8B11969362B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E20C1C5B-91FA-44C1-8A00-8B11969362B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E20C1C5B-91FA-44C1-8A00-8B11969362B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E20C1C5B-91FA-44C1-8A00-8B11969362B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
