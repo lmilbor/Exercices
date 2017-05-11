@@ -1,0 +1,67 @@
+﻿<Window x:Class="Exercice_Visuel_explorateur_de_fichier.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Exercice_Visuel_explorateur_de_fichier"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="392.635" Width="525">
+    <Grid Margin="2.5" ShowGridLines="False">
+        <!-- Création de 4 lignes -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="275"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Dossier à analyser" Margin="2.5" VerticalContentAlignment="Center"/>
+        <DockPanel Grid.Row="1" Grid.ColumnSpan="2" Margin="2.5">
+            <Button Content="..." Width="40" DockPanel.Dock="Right"  Margin="2.5, 0, 2.5, 0"/>
+            <TextBox Margin="2.5, 0, 2.5, 0"/>
+        </DockPanel>
+
+        <GridSplitter Grid.Row="2" Grid.ColumnSpan="2" Height="2.5" Background="Gray" Margin="2, 0, 2, 2"
+              ResizeDirection="Rows" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+        <GridSplitter Grid.Row="2" Grid.RowSpan="6" Grid.Column="1" HorizontalAlignment="Left"
+                 Width="2.5" Background="Black" ResizeDirection="Columns" VerticalAlignment="Stretch" />
+
+        <Button Content="Analyser" Grid.Row="2" Margin="2.5"/>
+        <DockPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Margin="2.5" Background="LightBlue" HorizontalAlignment="Stretch">
+            <Label Content="Fichiers projets" Margin="2.5, 0, 2.5, 0" DockPanel.Dock="Left"/>
+            <Label Content="39" HorizontalContentAlignment="Right"/>
+        </DockPanel>
+        <GroupBox Grid.Row="3" Margin="2.5" Header="Afficher" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" Margin="2.5">
+                <CheckBox Content="Nombre total de fichiers" Margin="2.5"/>
+                <CheckBox Content="Nombre de fichiers cs" Margin="2.5"/>
+                <CheckBox Content="Nom du fichier le plus long" Margin="2.5"/>
+                <CheckBox Content="Liste des fichiers projets" Margin="2.5"/>
+            </StackPanel>
+        </GroupBox>
+        <Expander Grid.Row="4" IsExpanded="True" BorderThickness="1" BorderBrush="Red" Header="Statistiques" Margin="2.5">
+            <TextBlock TextWrapping="Wrap" FontSize="16" Margin="2.5">
+         - 120 fichiers<LineBreak/>
+         - 104 fichiers cs<LineBreak/>
+         - Nom le plus long :<LineBreak/>
+         Un nom de fichier très long qui ne tient pas sur une seule ligne.
+            </TextBlock>
+        </Expander>
+
+        <ListBox Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" Margin="2.5" BorderThickness="1" BorderBrush="Black">
+            <ListBoxItem Content="item 1" />
+            <ListBoxItem Content="item 2" />
+            <ListBoxItem Content="item 3" />
+            <ListBoxItem Content="item 4" />
+            <ListBoxItem Content="item 5" />
+            <ListBoxItem Content="item 6" />
+            <ListBoxItem Content="item 7" />
+            <ListBoxItem Content="item 8" />
+        </ListBox>
+    </Grid>
+</Window>
