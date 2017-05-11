@@ -7,9 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <StackPanel Margin="5" ScrollViewer.VerticalScrollBarVisibility="Visible">
-        <Label Content="Option générals d'utilisation de Word" Margin="2"/>
-        <Label Content="Option d'interface utilisateur" Background="LightGray" Margin="-2.5,2.5,0,2.5"/>
+    <StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <!--<Image Source="{StaticResource ResourceKey=imageUsers}"/>-->
+            <Image Source="C:\Users\lmilbor\OneDrive\Documents\Support de cours\Exercices\WPF\Users.png" Width="20" Margin="2"/>
+            <Label Content="Option générals d'utilisation de Word" Margin="2"/>
+        </StackPanel>
+        <Label Content="Option d'interface utilisateur" FontWeight="Bold" Background="LightGray" Margin="-2.5,2.5,0,2.5"/>
         <CheckBox Content="Afficher la mini barre d'outils lors de la sélection" Margin="2"/>
         <CheckBox Content="Activer l'aperçu instantané" Margin="2"/>
         <CheckBox Content="Mettre à jour le contenu des documents pendant leur déplacement" Margin="2"/>
@@ -17,7 +21,7 @@
             <Label Content="Style d'info-bulle :" Margin="2"/>
             <ComboBox Text="Afficher les descriptions des fonctionnalités dans des info-bulles" Margin="2"/>
         </StackPanel>
-        <Label Content="Personnaliser votre suite de programmes Microsoft Office" Background="LightGray" Margin="-2.5,2,0,2"/>
+        <Label Content="Personnaliser votre suite de programmes Microsoft Office" FontWeight="Bold" Background="LightGray" Margin="-2.5,2,0,2"/>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -40,7 +44,7 @@
             <Label Grid.Row="4" Grid.Column="0" Content="Thème Office :" Margin="2"/>
             <ComboBox Grid.Row="4" Grid.Column="1" Text="En couleur" Margin="2" HorizontalAlignment="Left" MinWidth="80"/>
         </Grid>
-        <Label Content="Options de démarrage" Background="LightGray" Margin="-2.5,2,0,2"/>
+        <Label Content="Options de démarrage" FontWeight="Bold" Background="LightGray" Margin="-2.5,2,0,2"/>
         <StackPanel Orientation="Horizontal">
             <Label Content="Choisir les extensions que Word doit toujours ouvrir :" Margin="2"/>
             <Button Content="Programmes que vous souhaitez utiliser ..." Margin="2"/>

@@ -8,7 +8,11 @@
         Title="MainWindow" Height="350" Width="525">
     <DockPanel>
         <TabControl DockPanel.Dock="Left" TabStripPlacement="Left">
-            <TabItem Header="Général"/>
+            <TabItem Header="Général">
+                <ScrollViewer BorderBrush="Blue" BorderThickness="1" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <local:UCOptionGeneral/>
+                </ScrollViewer>
+            </TabItem>
             <TabItem Header="Affichage"/>
             <TabItem Header="Vérification"/>
         </TabControl>
@@ -16,6 +20,5 @@
             <Button Content="OK" Margin="5" Width="60"/>
             <Button Content="Annuler" Margin="5" Width="60"/>
         </DockPanel>
-        <local:UCOptionGeneral/>
     </DockPanel>
 </Window>
