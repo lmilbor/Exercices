@@ -30,7 +30,10 @@ namespace Trombinoscope
             BindingList<Personne> listPersonne = new BindingList<Personne>();
 
             var connectString = Properties.Settings.Default.ConnectionStringNW;
-            string sqlQuery = @"SELECT EmployeeID, FirstName, LastName, Photo FROM Employees";
+            string sqlQuery = @"SELECT e.EmployeeID, e.FirstName, e.LastName, e.Photo, t.TerritoryDescription
+                                FROM Territories t
+                                INNER JOIN EmployeeTerritories et ON t.TerritoryID = et.TerritoryID
+                                RIGHT OUTER JOIN Employees e ON e.EmployeeID = et.EmployeeID";
             using (var connect = new SqlConnection(connectString))
             {
                 var command = new SqlCommand(sqlQuery, connect);
@@ -47,15 +50,22 @@ namespace Trombinoscope
         {
             while (reader.Read())
             {
-                Personne personne = new Personne();
-                personne.EmployeeID = (int)reader["EmployeeID"];
-                personne.FirstName = (string)reader["FirstName"];
-                personne.LastName = (string)reader["LastName"];
-                if (reader["Photo"] != DBNull.Value)
+                int employeeID = (int)reader["EmployeeID"];
+                if (listPersonne.Count()==0 || listPersonne.Last().EmployeeID != employeeID)
                 {
-                    personne.Picture = ConvertBytesToImageSource((Byte[])reader["Photo"]); 
+                    Personne personne = new Personne();
+                    personne.EmployeeID = employeeID;
+                    personne.FirstName = (string)reader["FirstName"];
+                    personne.LastName = (string)reader["LastName"];
+                    if (reader["Photo"] != DBNull.Value)
+                    {
+                        personne.Picture = ConvertBytesToImageSource((Byte[])reader["Photo"]);
+                    }
+                    personne.ListTerritory = new List<string>();
+                    listPersonne.Add(personne);
                 }
-                listPersonne.Add(personne);
+                else if (reader["TerritoryDescription"] != DBNull.Value)
+                    listPersonne.Last().ListTerritory.Add((string)reader["TerritoryDescription"]);
             }
         }
     }

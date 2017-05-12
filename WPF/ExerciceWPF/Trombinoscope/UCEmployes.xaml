@@ -7,17 +7,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <StackPanel Orientation="Vertical">
+        <DockPanel.Resources>
+            <ResourceDictionary>
+                <SolidColorBrush x:Key="CouleurEmploye" Color="LightGray"/>
+                <Style TargetType="StackPanel">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </ResourceDictionary>
+        </DockPanel.Resources>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Left">
             <Image Name="imageGroupConteneur" Source= "pack://application:,,,/Images/imageGroup.bmp" Width="80"/>
-            <ListBox Name="listEmployes" DockPanel.Dock="Left">
-                <ListBox.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <WrapPanel Orientation="Vertical">
-                        </WrapPanel>
-                    </ItemsPanelTemplate>
-                </ListBox.ItemsPanel>
-            </ListBox>
+            <ListView Name="listEmployes" DockPanel.Dock="Left" ItemsSource="{Binding}" IsSynchronizedWithCurrentItem="True">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding EmployeeID}"/>
+                        <GridViewColumn Header="Nom" DisplayMemberBinding="{Binding LastName}"/>
+                        <GridViewColumn Header="Prénom" DisplayMemberBinding="{Binding FirstName}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
-        <TextBox Name="employeInfo" />
+        <StackPanel Orientation="Horizontal">
+            <ListView ItemsSource="{Binding ListTerritory}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Territoires"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Nombre de territoires : "/>
+                <Label Content="{Binding Path=ListTerritory.Count}"/>
+            </StackPanel>
+        </StackPanel>
     </DockPanel>
 </UserControl>

@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:FenetreParametrage"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="DicoImages.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+            <Style x:Key="StyleEnteteLabel">
+                <Setter Property="Label.Background" Value="LightGray"/>
+                <Setter Property="Label.FontWeight" Value="Bold"/>
+                <Setter Property="Label.Margin" Value="-5,2,0,2"/>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

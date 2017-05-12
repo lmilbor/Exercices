@@ -23,17 +23,7 @@ namespace Trombinoscope
         public UCTrombi()
         {
             InitializeComponent();
-            foreach (var personne in DAL.GetPeople())
-            {
-                Image image = new Image();
-                image.Source = personne.Picture;
-                image.Width = 200;
-                listPhoto.Items.Add(image); 
-            }
-        }
-        protected override void OnContextMenuClosing(ContextMenuEventArgs e)
-        {
-            base.OnContextMenuClosing(e);
+            listPhoto.DataContext = DAL.GetPeople().Select(p => p.Picture).ToList();
         }
     }
 }

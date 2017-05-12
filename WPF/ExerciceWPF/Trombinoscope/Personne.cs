@@ -13,5 +13,6 @@ namespace Trombinoscope
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public ImageSource Picture { get; set; }
+        public List<string> ListTerritory { get; set; }
     }
 }

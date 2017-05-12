@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Trombinoscope
+namespace exercice_DataBinding
 {
     /// <summary>
-    /// Interaction logic for UCEmployes.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class UCEmployes : UserControl
+    public partial class MainWindow : Window
     {
-        public UCEmployes()
+        public MainWindow()
         {
             InitializeComponent();
-            DataContext = DAL.GetPeople();
         }
     }
 }

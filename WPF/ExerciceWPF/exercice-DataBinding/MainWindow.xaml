@@ -1,0 +1,29 @@
+﻿<Window x:Class="exercice_DataBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:exercice_DataBinding"
+        mc:Ignorable="d"
+        Title="par defaut" Height="500" Width="500"
+        Name="window">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label Content="Titre de la fenêtre"/>
+            <TextBox Text="{Binding ElementName=window, Path=Title}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Label Content="Diemension de la fenêtre"/>
+            <TextBox Name="tbLargeureFenetre" Text="{Binding ElementName=window, Path=Width}"/>
+            <Label Content="X"/>
+            <TextBox Name="tbHauteurFenetre" Text="{Binding ElementName=window, Path=Height}" />
+        </StackPanel>
+        <StackPanel>
+            <Slider Name="sldLargeurBoite" Maximum="100"/>
+            <StackPanel Orientation="Horizontal">
+                <Slider Name="sldHauterBoite" Maximum="100" Orientation="Vertical"/>
+                <Rectangle Width="100" Height="100" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </StackPanel>
+    </DockPanel>
+</Window>
