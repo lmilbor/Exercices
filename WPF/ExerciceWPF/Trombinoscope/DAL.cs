@@ -30,10 +30,12 @@ namespace Trombinoscope
             BindingList<Personne> listPersonne = new BindingList<Personne>();
 
             var connectString = Properties.Settings.Default.ConnectionStringNW;
-            string sqlQuery = @"SELECT e.EmployeeID, e.FirstName, e.LastName, e.Photo, t.TerritoryDescription
+            string sqlQuery = @"SELECT e.EmployeeID, e.FirstName, e.LastName, e.Photo, t.TerritoryDescription,
+                                e.ReportsTo, em.FirstName AS MFirstName, em.LastName AS MLastName
                                 FROM Territories t
                                 INNER JOIN EmployeeTerritories et ON t.TerritoryID = et.TerritoryID
-                                RIGHT OUTER JOIN Employees e ON e.EmployeeID = et.EmployeeID";
+                                RIGHT OUTER JOIN Employees e ON e.EmployeeID = et.EmployeeID
+                                LEFT OUTER JOIN Employees em on em.EmployeeID = e.ReportsTo";
             using (var connect = new SqlConnection(connectString))
             {
                 var command = new SqlCommand(sqlQuery, connect);
@@ -51,7 +53,7 @@ namespace Trombinoscope
             while (reader.Read())
             {
                 int employeeID = (int)reader["EmployeeID"];
-                if (listPersonne.Count()==0 || listPersonne.Last().EmployeeID != employeeID)
+                if (listPersonne.Count() == 0 || listPersonne.Last().EmployeeID != employeeID)
                 {
                     Personne personne = new Personne();
                     personne.EmployeeID = employeeID;
@@ -62,6 +64,18 @@ namespace Trombinoscope
                         personne.Picture = ConvertBytesToImageSource((Byte[])reader["Photo"]);
                     }
                     personne.ListTerritory = new List<string>();
+                    if (reader["ReportsTo"] != DBNull.Value)
+                    {
+                        personne.ManagerID = (int)reader["ReportsTo"];
+                    }
+                    if (reader["MFirstName"] != DBNull.Value)
+                    {
+                        personne.ManagerFirstName = (string)reader["MFirstName"];
+                    }
+                    if (reader["MLastName"] != DBNull.Value)
+                    {
+                        personne.ManagerLastName = (string)reader["MLastName"];
+                    }
                     listPersonne.Add(personne);
                 }
                 else if (reader["TerritoryDescription"] != DBNull.Value)

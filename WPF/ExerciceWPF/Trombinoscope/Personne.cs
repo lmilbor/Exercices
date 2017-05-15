@@ -14,5 +14,8 @@ namespace Trombinoscope
         public string LastName { get; set; }
         public ImageSource Picture { get; set; }
         public List<string> ListTerritory { get; set; }
+        public int ManagerID { get; set; }
+        public string ManagerLastName { get; set; }
+        public string ManagerFirstName { get; set; }
     }
 }

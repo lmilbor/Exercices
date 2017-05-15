@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FenetreParametrage", "Fenet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "exercice-DataBinding", "exercice-DataBinding\exercice-DataBinding.csproj", "{E8F4C9B6-22C4-4870-80BB-E0439DA246DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelevésMétéo", "RelevésMétéo\RelevésMétéo.csproj", "{449BCB33-4EBD-44F5-B397-3E8F1CA6B835}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{E8F4C9B6-22C4-4870-80BB-E0439DA246DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8F4C9B6-22C4-4870-80BB-E0439DA246DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8F4C9B6-22C4-4870-80BB-E0439DA246DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449BCB33-4EBD-44F5-B397-3E8F1CA6B835}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449BCB33-4EBD-44F5-B397-3E8F1CA6B835}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449BCB33-4EBD-44F5-B397-3E8F1CA6B835}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449BCB33-4EBD-44F5-B397-3E8F1CA6B835}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,11 +8,21 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <ListBox Name="listPhoto" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
              ItemsSource="{Binding}">
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel Orientation="Horizontal">
+                </WrapPanel>
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
         <ListBox.ItemTemplate>
             <DataTemplate>
-                <WrapPanel Orientation="Horizontal">
-                    <Image  Source="{Binding Picture}"/>
-                </WrapPanel>
+                <StackPanel Orientation="Vertical">
+                    <Image Source="{Binding Picture}" Width="200"/>
+                    <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Label Content="{Binding LastName}" Foreground="Blue"/>
+                        <Label Content="{Binding FirstName}" Foreground="Blue"/>
+                    </StackPanel>
+                </StackPanel>
             </DataTemplate>
         </ListBox.ItemTemplate>
     </ListBox>

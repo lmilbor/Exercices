@@ -23,7 +23,7 @@ namespace Trombinoscope
         public UCTrombi()
         {
             InitializeComponent();
-            listPhoto.DataContext = DAL.GetPeople().Select(p => p.Picture).ToList();
+            listPhoto.DataContext = DAL.GetPeople();
         }
     }
 }
