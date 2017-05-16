@@ -25,6 +25,7 @@ namespace RelevésMétéo
         public MainWindow()
         {
             InitializeComponent();
+            //Language = System.Windows.Markup.
             _dataMétéo = new DALMeteo();
             tbDirectory.Text = AppDomain.CurrentDomain.BaseDirectory;
             btnDirectory.Click += BtnDirectory_Click;

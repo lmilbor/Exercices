@@ -11,13 +11,26 @@ using System.Windows.Media;
 
 namespace RelevésMétéo
 {
-    public class VisibleToHiddenConverter : IValueConverter
+    public class BoolToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // On converti la valeur de la combo box en état visible ou invisible
-            Visibility v = ((bool)value ? Visibility.Visible : Visibility.Hidden);
-            return v;
+            return ((bool)value ? Visibility.Visible : Visibility.Hidden);
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+    public class DoubleToColorBrushConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            Color c = ((double)value <= (double)parameter ? Colors.LightYellow : Colors.White);
+            return new SolidColorBrush(c);
+
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

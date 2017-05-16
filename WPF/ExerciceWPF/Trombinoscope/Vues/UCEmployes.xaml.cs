@@ -24,7 +24,7 @@ namespace Trombinoscope
         public UCEmployes()
         {
             InitializeComponent();
-            DataContext = DAL.GetPeople();
+            DataContext = new ContexteEmploye();
         }
     }
 }
