@@ -1,0 +1,57 @@
+﻿<Window x:Class="SaisieTaches.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SaisieTaches"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <DockPanel>
+        <Expander DockPanel.Dock="Right" IsExpanded="True" ExpandDirection="Left" BorderThickness="1" BorderBrush="DarkViolet">
+                <DockPanel Margin="2">
+                    <StackPanel DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Width" Value="25"/>
+                                    <Setter Property="FontWeight" Value="Bold"/>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Content="+"/>
+                            <Button Content="&#x2212;"/>
+                            <Button Content="&#x2713;"/>
+                            <Button Content="&#x21b6;"/>
+                        </StackPanel>
+                        <DockPanel>
+                        <TextBlock Text="{Binding Taches/Creation, StringFormat='crée le \{0:dd/MM/yyyy\}'}" DockPanel.Dock="Right"/>
+                        <TextBlock Text="{Binding Taches/Id, StringFormat='Tâche N°\{0\}'}"/>
+                        </DockPanel>
+                        <Label Content="Echéance"/>
+                    <DatePicker Text="{Binding Taches/Term, StringFormat='\{0:dd/MM/yyyy\}'}" Margin="0,2.5,0,2.5"/>
+                        <DockPanel Margin="0,2.5,0,2.5">
+                            <CheckBox Content="Fait" DockPanel.Dock="Right"/>
+                            <Label Content="Priorité" HorizontalAlignment="Left"/>
+                        <TextBox Text="{Binding Taches/Prio}" Height="20" Width="15" HorizontalAlignment="Left"/>
+                        </DockPanel>
+                    </StackPanel>
+                    <Border BorderThickness="0.7" BorderBrush="Black" Margin="2" Padding="2">
+                    <TextBlock Width="200" TextWrapping="Wrap" Text="{Binding Taches/Description}"/>
+                    </Border>
+                </DockPanel>
+        </Expander>
+        <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <Label Content="liste de tâches" />
+            <ListView ItemsSource="{Binding Taches}" IsSynchronizedWithCurrentItem="True">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="Echéance" DisplayMemberBinding="{Binding Term}"/>
+                        <GridViewColumn Header="Priorité" DisplayMemberBinding="{Binding Prio}"/>
+                        <GridViewColumn Header="Fait" DisplayMemberBinding="{Binding Fait}"/>
+                        <GridViewColumn Header="Description" DisplayMemberBinding="{Binding Description}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </DockPanel>
+</Window>
