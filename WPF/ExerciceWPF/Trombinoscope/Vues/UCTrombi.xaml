@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <ListBox Name="listPhoto" ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-             ItemsSource="{Binding}">
+             ItemsSource="{Binding Employees}">
         <ListBox.ItemsPanel>
             <ItemsPanelTemplate>
                 <WrapPanel Orientation="Horizontal">

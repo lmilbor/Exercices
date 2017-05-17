@@ -9,8 +9,8 @@
         Title="MainWindow" Height="500" Width="700">
     <DockPanel>
         <Menu DockPanel.Dock="Top" Height="20">
-            <MenuItem Name="menuTrombi" Header="{x:Static resx:Label.menuTrombi}" Command="{Binding CmbTrombi}" />
-            <MenuItem Name="menuEmployés" Header="{x:Static resx:Label.menuEmployés}" Command="{Binding CmbEmployees}" />
+            <MenuItem Name="menuTrombi" Header="{x:Static resx:Label.menuTrombi}" Command="{Binding CmdTrombi}" />
+            <MenuItem Name="menuEmployés" Header="{x:Static resx:Label.menuEmployés}" Command="{Binding CmdEmployees}" />
         </Menu>
         <ContentControl Name="contentCtrl" Content="{Binding VMCourante}"/>
     </DockPanel>

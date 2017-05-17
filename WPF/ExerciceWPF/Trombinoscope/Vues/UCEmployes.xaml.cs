@@ -24,7 +24,6 @@ namespace Trombinoscope
         public UCEmployes()
         {
             InitializeComponent();
-            DataContext = new ContexteEmploye();
         }
     }
 }
