@@ -7,15 +7,11 @@
         xmlns:resx="clr-namespace:Trombinoscope.FichierResx"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="700">
-    <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top" Height="20">
-                <MenuItem Name="menuTrombi" Header="{x:Static resx:Label.menuTrombi}" />
-                <MenuItem Name="menuEmployés" Header="{x:Static resx:Label.menuEmployés}" />
-            </Menu>
-            <ContentControl Name="contentCtrl">
-                
-            </ContentControl>
-        </DockPanel>
-    </Grid>
+    <DockPanel>
+        <Menu DockPanel.Dock="Top" Height="20">
+            <MenuItem Name="menuTrombi" Header="{x:Static resx:Label.menuTrombi}" Command="{Binding CmbTrombi}" />
+            <MenuItem Name="menuEmployés" Header="{x:Static resx:Label.menuEmployés}" Command="{Binding CmbEmployees}" />
+        </Menu>
+        <ContentControl Name="contentCtrl" Content="{Binding VMCourante}"/>
+    </DockPanel>
 </Window>

@@ -11,19 +11,16 @@ using System.Windows.Input;
 
 namespace Trombinoscope
 {
-    public class ContexteEmploye : INotifyPropertyChanged
+    public class ContexteEmploye : VMMain
     {
         private Personne _newEmployee;
         public ObservableCollection<Personne> Employees { get; }
         public Personne NewEmployee
-        { get {return _newEmployee; }
+        {
+            get { return _newEmployee; }
             private set
             {
-                if (value != _newEmployee)
-                {
-                    _newEmployee = value;
-                    RaisePropertyChanged();
-                }
+                SetProperty<Personne>(ref _newEmployee, value);
             }
         }
         public ContexteEmploye()
@@ -31,7 +28,6 @@ namespace Trombinoscope
             Employees = new ObservableCollection<Personne>(DAL.GetPeople());
             NewEmployee = new Personne();
         }
-        public event PropertyChangedEventHandler PropertyChanged;
 
         // Commande d'ajout
         private ICommand _cmdAdd;
@@ -73,12 +69,5 @@ namespace Trombinoscope
             DAL.RemoveEmployee(e);
             Employees.Remove(e);
         }
-
-        private void RaisePropertyChanged([CallerMemberName] string prop = null)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-
     }
 }

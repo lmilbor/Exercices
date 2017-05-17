@@ -55,15 +55,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="ContexteEmploye.cs" />
-    <Compile Include="DAL.cs" />
+    <Compile Include="ViewModel\ContexteTrombinoscope.cs" />
+    <Compile Include="ViewModel\ContexteEmploye.cs" />
+    <Compile Include="Models\DAL.cs" />
     <Compile Include="FichierResx\Label.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Label.resx</DependentUpon>
     </Compile>
-    <Compile Include="Personne.cs" />
-    <Compile Include="RelayCommand.cs" />
+    <Compile Include="Entités\Personne.cs" />
+    <Compile Include="ViewModel\RelayCommand.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="ViewModel\VMMain.cs" />
     <Compile Include="Vues\UCEmployes.xaml.cs">
       <DependentUpon>UCEmployes.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,7 @@
   <ItemGroup>
     <Resource Include="Images\imageGroup.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

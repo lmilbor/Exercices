@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Trombinoscope"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <!-- DataTemplates qui associent les vues aux vues-modèles -->
+        <DataTemplate DataType="{x:Type local:ContexteEmploye}">
+            <local:UCEmployes/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type local:ContexteTrombinoscope}">
+            <local:UCTrombi/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

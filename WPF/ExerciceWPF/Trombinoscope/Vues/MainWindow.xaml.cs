@@ -20,31 +20,10 @@ namespace Trombinoscope
     /// </summary>
     public partial class MainWindow : Window
     {
-        private UCTrombi _ucTrombi;
-        private UCEmployes _ucEmployes;
         public MainWindow()
         {
             InitializeComponent();
-            menuTrombi.Click += MenuTrombi_Click;
-            menuEmployés.Click += MenuEmployés_Click;
-        }
-
-        private void MenuEmployés_Click(object sender, RoutedEventArgs e)
-        {
-            if (_ucEmployes == null)
-            {
-                _ucEmployes = new UCEmployes();
-            }
-            contentCtrl.Content = _ucEmployes;
-        }
-
-        private void MenuTrombi_Click(object sender, RoutedEventArgs e)
-        {
-            if (_ucTrombi == null)
-            {
-                _ucTrombi = new UCTrombi();
-            }
-            contentCtrl.Content = _ucTrombi;
+            DataContext = new VMMain();
         }
     }
 }
