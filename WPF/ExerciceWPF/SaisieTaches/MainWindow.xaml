@@ -30,7 +30,7 @@
                         <TextBlock Text="{Binding Taches/Id, StringFormat='Tâche N°\{0\}'}"/>
                     </DockPanel>
                     <Label Content="Echéance"/>
-                    <DatePicker Text="{Binding Taches/Term, StringFormat='\{0:dd/MM/yyyy\}'}" Margin="0,2.5,0,2.5" IsEnabled="{Binding ModeEdition, Converter={StaticResource ResourceKey=BoolToBoolConverter}}"/>
+                    <DatePicker Text="{Binding Taches/Term, StringFormat='d'}" Margin="0,2.5,0,2.5" IsEnabled="{Binding ModeEdition, Converter={StaticResource ResourceKey=BoolToBoolConverter}}"/>
                     <DockPanel IsEnabled="{Binding ModeEdition, Converter={StaticResource ResourceKey=BoolToBoolConverter}}">
                         <CheckBox Content="Fait" IsChecked="{Binding Taches/Fait}" DockPanel.Dock="Right" VerticalAlignment="Center"/>
                         <Label Content="Priorité" HorizontalAlignment="Left"/>
