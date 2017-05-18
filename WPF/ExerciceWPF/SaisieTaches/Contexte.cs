@@ -113,7 +113,7 @@ namespace SaisieTaches
             ModeEdition = true;
             Taches = new ObservableCollection<Tache>(AccesDonnees.ChargerTaches());
         }
-
+        
         #region Méthodes privées liées aux commandes
         private void Annuler(object obj)
         {

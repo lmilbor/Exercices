@@ -38,7 +38,7 @@
                     </DockPanel>
                 </StackPanel>
                 <Border BorderThickness="0.7" BorderBrush="Black" Margin="2" Padding="2">
-                    <TextBox Width="200" TextWrapping="Wrap" Text="{Binding Taches/Description}" IsEnabled="{Binding ModeEdition, Converter={StaticResource ResourceKey=BoolToBoolConverter}}"/>
+                    <TextBox Width="200" TextWrapping="Wrap" Text="{Binding Taches/Description}" IsReadOnly="{Binding ModeEdition}"/>
                 </Border>
             </DockPanel>
         </Expander>
