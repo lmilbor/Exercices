@@ -39,21 +39,15 @@
             </Border>
         </DataTemplate>
         <DataTemplate x:Key="dtGroupAnnée">
-            <!--<StackPanel>
-                <TextBlock Text="{Binding Année}"/>
-                <ListBox HorizontalAlignment="Stretch">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>-->
             <DockPanel>
                 <TextBlock Text="{Binding Année}" Margin="0,0,10,0"/>
                 <TextBlock Width="150" Text="{Binding Date, StringFormat='\{0:MMMM\}'}" HorizontalAlignment="Left" DockPanel.Dock="Left"/>
                 <TextBlock Text="{Binding TMax, StringFormat='Maximale : \{0\}°C'}" HorizontalAlignment="Left" DockPanel.Dock="Right" Width="150"/>
                 <TextBlock Text="{Binding TMin, StringFormat='Minimale : \{0\}°C'}" HorizontalAlignment="Left"/>
             </DockPanel>
-            <!--</DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-            </StackPanel>-->
+        </DataTemplate>
+        <DataTemplate x:Key="dtGroupeAnnéeHeader">
+            <TextBlock Text="{Binding Name}" Background="LightSteelBlue" FontWeight="Bold" Padding="3"/>
         </DataTemplate>
     </Window.Resources>
     <DockPanel Margin="5,5,5,10">
@@ -61,15 +55,36 @@
             <Button Name="btnDirectory" Content="..." Width="40" DockPanel.Dock="Right"/>
             <TextBox Name="tbDirectory"/>
         </DockPanel>
-        <StackPanel Orientation="Horizontal" Height="30" DockPanel.Dock="Top" Margin="0,0,0,10">
-            <Label Content="Vue"/>
-            <ComboBox Name="cbVues" VerticalContentAlignment="Center" Height="25">
-                <ComboBox.Items>
-                    <ComboBoxItem Content="Vignette" Name="cbiVignette" IsSelected="True"/>
-                    <ComboBoxItem Content="Groupée par année" Name="cbiGroupAnnée"/>
-                </ComboBox.Items>
-            </ComboBox>
-        </StackPanel>
+        <DockPanel Height="30" DockPanel.Dock="Top" Margin="0,0,0,10">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                <Label Content="Vue"/>
+                <ComboBox Name="cbVues" VerticalContentAlignment="Center" Height="25">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="Vignette" Name="cbiVignette" IsSelected="True"/>
+                        <ComboBoxItem Content="Groupée par année" Name="cbiGroupAnnée"/>
+                    </ComboBox.Items>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" DockPanel.Dock="Right">
+                <!--Visibility="{Binding ElementName=cbiGroupAnnée, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}">-->
+                <Label Content="Tri"/>
+                <ComboBox Name="cbTri" VerticalContentAlignment="Center" Height="25" SelectedValuePath="Tag">
+                    <ComboBox.Items>
+                        <ComboBoxItem Tag="Mois" Content="Mois" Name="cbiMois" IsSelected="True"/>
+                        <ComboBoxItem Tag="TMin" Content="TMin" Name="cbiTMin"/>
+                        <ComboBoxItem Tag="TMax" Content="TMax" Name="cbiTMax"/>
+                        <ComboBoxItem Tag="Précipitations" Content="Précipitation" Name="cbiPrecipitation"/>
+                        <ComboBoxItem Tag="Ensoleillement" Content="Ensoleillement" Name="cbiDureeEnsoleillement"/>
+                    </ComboBox.Items>
+                </ComboBox>
+                <ComboBox Name="cbOrdreTri" VerticalContentAlignment="Center" Height="25">
+                    <ComboBox.Items>
+                        <ComboBoxItem Content="&#x25bc;" Name="cbiDescendant" IsSelected="True"/>
+                        <ComboBoxItem Content="&#x25b2;" Name="cbiAscendant"/>
+                    </ComboBox.Items>
+                </ComboBox>
+            </StackPanel>
+        </DockPanel>
         <Grid DockPanel.Dock="Bottom" Margin="0,10,0,0" >
             <Border Name="spDetail"  Visibility="{Binding ElementName=cbiGroupAnnée, Path=IsSelected, Converter={StaticResource BoolToVisibilityConverter}}"
                      BorderBrush="Blue" BorderThickness="1">
@@ -120,6 +135,12 @@
                 </StackPanel>
             </StackPanel>
         </Grid>
-        <ListBox Name="lbDonnéesMétéo" ItemsSource="{Binding}" HorizontalAlignment="Stretch" ItemTemplate="{StaticResource dtVignette}"  IsSynchronizedWithCurrentItem="True"/>
+        <ListBox Name="lbDonnéesMétéo" ItemsSource="{Binding}" HorizontalAlignment="Stretch"
+                 ItemTemplate="{StaticResource dtVignette}" IsSynchronizedWithCurrentItem="True">
+            <ListBox.GroupStyle>
+                <GroupStyle HeaderTemplate="{StaticResource dtGroupeAnnéeHeader}">
+                </GroupStyle>
+            </ListBox.GroupStyle>
+        </ListBox>
     </DockPanel>
 </Window>

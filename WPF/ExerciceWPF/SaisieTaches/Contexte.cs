@@ -1,18 +1,57 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace SaisieTaches
 {
-    public class Contexte
+    public class Contexte : INotifyPropertyChanged
     {
-        public List<Tache> Taches { get; private set; }
+        private Tache _newTache;
+        public Tache NewTache { get; set; }
+        private ObservableCollection<Tache> _taches;
+        public ObservableCollection<Tache> Taches
+        {
+            get { return _taches; }
+            private set
+            {
+                if (value != _taches)
+                {
+                    _taches = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
+        private bool _modeEdition;
+        public bool ModeEdition
+        {
+            get { return _modeEdition; }
+            private set
+            {
+                if (value != _modeEdition)
+                {
+                    _modeEdition = value;
+                    RaisePropertyChanged();
+                }
+            }
+        }
+
         public Contexte()
         {
-            Taches = AccesDonnees.ChargerTaches();
+            NewTache = new Tache();
+            NewTache.Id = Taches.Select(t => t.Id).Max() + 1;
+            NewTache.Creation = DateTime.Today;
+            NewTache.Prio = 1;
+
+            ModeEdition = true;
+            Taches = new ObservableCollection<Tache>(AccesDonnees.ChargerTaches());
         }
 
         // Commande d'ajout
@@ -52,19 +91,47 @@ namespace SaisieTaches
             }
         }
 
+        private ICommand _cmdAnnuler;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ICommand CmdAnnuler
+        {
+            get
+            {
+                if (_cmdAnnuler == null)
+                    _cmdAnnuler = new RelayCommand(Annuler);
+
+                return _cmdAnnuler;
+            }
+        }
+
+        private void Annuler(object obj)
+        {
+            ModeEdition = !ModeEdition;
+        }
+
         private void EnregistrerTache(object obj)
         {
-            throw new NotImplementedException();
+            Taches.Add(NewTache);
+            ModeEdition = !ModeEdition;
         }
 
         private void SupprimerTache(object obj)
         {
-            throw new NotImplementedException();
+            var tache = (Tache)CollectionViewSource.GetDefaultView(Taches).CurrentItem;
+            Taches.Remove(tache);
         }
 
         private void AjouterTache(object obj)
         {
-            throw new NotImplementedException();
+            ModeEdition = !ModeEdition;
         }
+        private void RaisePropertyChanged([CallerMemberName] string prop = null)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+        }
+
     }
 }

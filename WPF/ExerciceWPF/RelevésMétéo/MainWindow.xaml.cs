@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,9 +31,15 @@ namespace RelevésMétéo
             tbDirectory.Text = AppDomain.CurrentDomain.BaseDirectory;
             btnDirectory.Click += BtnDirectory_Click;
             cbVues.SelectionChanged += CbVues_SelectionChanged;
+            cbTri.SelectionChanged += CbVues_SelectionChanged;
+            cbOrdreTri.SelectionChanged += CbVues_SelectionChanged;
         }
         private void CbVues_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ICollectionView view = CollectionViewSource.GetDefaultView(_dataMétéo.Data);
+            view.SortDescriptions.Clear();
+            view.GroupDescriptions.Clear();
+
             if (cbVues.SelectedItem == cbiVignette)
             {
                 lbDonnéesMétéo.ItemTemplate = (DataTemplate)Resources["dtVignette"];
@@ -40,9 +47,16 @@ namespace RelevésMétéo
             }
             else if (cbVues.SelectedItem == cbiGroupAnnée)
             {
+
                 lbDonnéesMétéo.ItemTemplate = (DataTemplate)Resources["dtGroupAnnée"];
+                view.SortDescriptions.Add(new SortDescription("Année", ListSortDirection.Ascending));
+                view.GroupDescriptions.Add(new PropertyGroupDescription("Année"));
                 DataContext = _dataMétéo.Data;
             }
+            var sens = cbOrdreTri.SelectedIndex == 0 ? ListSortDirection.Ascending :
+                                                      ListSortDirection.Descending;
+            var tri = new SortDescription(cbTri.SelectedValue.ToString(), sens);
+            view.SortDescriptions.Add(tri);
         }
         private void BtnDirectory_Click(object sender, RoutedEventArgs e)
         {

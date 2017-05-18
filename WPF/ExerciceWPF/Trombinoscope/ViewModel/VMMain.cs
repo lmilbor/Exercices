@@ -40,7 +40,7 @@ namespace Trombinoscope
             {
                 // On définit une instance de VMPersonnes comme vue-modèle courante
                 if (_cmdEmployees == null)
-                    _cmdEmployees = new RelayCommand((object o) => { VMCourante = new ContexteEmploye(); });
+                    _cmdEmployees = new RelayCommand((object o) => VMCourante = new ContexteEmploye());
                 return _cmdEmployees;
             }
         }
