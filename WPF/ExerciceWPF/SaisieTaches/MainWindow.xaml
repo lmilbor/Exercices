@@ -8,7 +8,6 @@
         Title="MainWindow" Height="350" Width="525">
     <Window.Resources>
         <local:BoolToBoolConverter x:Key="BoolToBoolConverter"/>
-        <!--Créer un data template pour switcher entre ajout et suppression de tache-->
     </Window.Resources>
     <DockPanel>
         <Expander DockPanel.Dock="Right" IsExpanded="True" ExpandDirection="Left" BorderThickness="1" BorderBrush="DarkViolet">
@@ -27,7 +26,7 @@
                         <Button Content="&#x21b6;" IsEnabled="{Binding ModeEdition, Converter={StaticResource ResourceKey=BoolToBoolConverter}}" Command="{Binding CmdAnnuler}"/>
                     </StackPanel>
                     <DockPanel>
-                        <TextBlock Text="{Binding Taches/Creation, StringFormat='crée le \{0:dd/MM/yyyy\}'}" DockPanel.Dock="Right"/>
+                        <TextBlock Text="{Binding Taches/Creation, StringFormat='crée le \{0:d\}', ConverterCulture='fr'}" DockPanel.Dock="Right"/>
                         <TextBlock Text="{Binding Taches/Id, StringFormat='Tâche N°\{0\}'}"/>
                     </DockPanel>
                     <Label Content="Echéance"/>
@@ -45,11 +44,11 @@
         </Expander>
         <StackPanel ScrollViewer.HorizontalScrollBarVisibility="Auto">
             <Label Content="liste de tâches" />
-            <ListView ItemsSource="{Binding Taches}" IsSynchronizedWithCurrentItem="True">
+            <ListView ItemsSource="{Binding Taches}" IsSynchronizedWithCurrentItem="True" SelectedItem="{Binding TacheCourante}" IsEnabled="{Binding ModeEdition}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Echéance" DisplayMemberBinding="{Binding Term}"/>
+                        <GridViewColumn Header="Echéance" DisplayMemberBinding="{Binding Term, StringFormat='d', ConverterCulture='fr'}"/>
                         <GridViewColumn Header="Priorité" DisplayMemberBinding="{Binding Prio}"/>
                         <GridViewColumn Header="Fait">
                             <GridViewColumn.CellTemplate>

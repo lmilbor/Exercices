@@ -24,5 +24,15 @@ namespace SaisieTaches
 
             return taches;
         }
+        static public void EnregistrerTaches(List<Tache> listeTache)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Tache>),
+      new XmlRootAttribute("Taches"));
+
+            using (var sr = new StreamWriter(@"..\..\Taches.xml"))
+            {
+                serializer.Serialize(sr, listeTache);
+            }
+        }
     }
 }
